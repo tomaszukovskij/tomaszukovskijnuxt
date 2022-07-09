@@ -3,13 +3,12 @@
     <div
       v-for="image in images"
       :key="image.slug"
-      :class="mobileClass"
       class="gallery-item"
     >
       <img
         :src="image.sourceUrl"
         :alt="image.altText"
-        :class="mobileClass"
+        :class="getImageOrientation(image)"
       >
     </div>
   </div>
@@ -22,12 +21,13 @@ export default {
   props: {
     images: t.array,
   },
-  computed: {
-    mobileClass() {
-      if (this.$mq === 'md') return 'mobile';
-      return '';
-    }
-  }
+  methods: {
+    getImageOrientation(image) {
+      const width = image.mediaDetails.sizes[0].width;
+      const height = image.mediaDetails.sizes[0].height;
+      return width > height ? 'horizontal' : 'portrait';
+    },
+  },
 }
 </script>
 
@@ -36,13 +36,25 @@ export default {
   width: 100%;
   margin-bottom: 20vh;
   text-align: center;
-  &.mobile {
+
+  @media all and (max-width: 1024px) {
+    margin-bottom: 15vh;
+  }
+
+  @media all and (max-width: 576px) {
     margin-bottom: 80px;
   }
 }
 img {
   height: 80vh;
-  &.mobile {
+  @media all and (max-width: 1024px) {
+    &.horizontal {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  @media all and (max-width: 576px) {
     height: auto;
     width: 100%;
   }

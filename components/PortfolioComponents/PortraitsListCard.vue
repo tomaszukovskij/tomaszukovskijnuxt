@@ -20,6 +20,10 @@ export default {
 .portfolio-item {
   width: 70%;
 
+  @media all and (max-width: 576px) {
+    width: 100%;
+  }
+
   img {
     width: 100%;
   }

@@ -11,11 +11,12 @@ export const singlePage = gql`
             altText
             slug
             sourceUrl
-          }
-          galleryMobile {
-            altText
-            slug
-            sourceUrl
+            mediaDetails {
+              sizes {
+                width
+                height
+              }
+            }
           }
         }
         slug

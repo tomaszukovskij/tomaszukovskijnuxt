@@ -4,10 +4,10 @@
       <nuxt-link to="/" >Tomas Zukovskij</nuxt-link>
     </div>
     <div class="main-nav__menu">
-      <nuxt-link to="/about" >About me</nuxt-link>
       <nuxt-link to="/peoples" >Peoples</nuxt-link>
       <nuxt-link to="/exhibitions" >Exhibitions</nuxt-link>
       <nuxt-link to="/coincidences" >Coincidences</nuxt-link>
+      <nuxt-link to="/about" >About me</nuxt-link>
     </div>
   </nav>
 </template>

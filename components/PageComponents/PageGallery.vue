@@ -22,7 +22,7 @@ export default {
 #page-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 </style>
