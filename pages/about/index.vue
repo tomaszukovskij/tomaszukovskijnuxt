@@ -1,11 +1,11 @@
 <template>
-  <page-single :page-title="'Peoples'" />
+  <page-single :page-title="'About me'" />
 </template>
 
 <script>
 import PageSingle from '@/components/PageComponents/PageSingle';
 export default {
-  name: 'PeoplesIndex',
+  name: 'AboutIndex',
   components: {
     PageSingle
   },
