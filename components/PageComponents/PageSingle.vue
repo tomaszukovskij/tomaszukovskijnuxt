@@ -8,6 +8,7 @@
     <div
       v-if="pageContent"
       v-html="pageContent"
+      class="page-content"
     />
     <page-gallery
       v-if="pageGallery"
@@ -28,6 +29,8 @@ export default {
   apollo: {
     pages: {
       query: singlePage,
+      prefetch: true,
+      fetchPolicy: 'cache-first',
       variables () {
         return {
           title: this.pageTitle,
@@ -52,7 +55,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.page-content {
+  margin-bottom: 100px;
+}
 </style>
 

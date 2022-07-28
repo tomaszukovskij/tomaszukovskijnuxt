@@ -17,6 +17,9 @@ export const singlePage = gql`
                 height
               }
             }
+            caption
+            altText
+            description
           }
         }
         slug

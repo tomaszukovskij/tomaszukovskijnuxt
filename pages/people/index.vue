@@ -1,31 +1,21 @@
 <template>
-  <div>
-    Personal photoshoot
-    <portfolio-list :list="portraitsList"/>
-  </div>
+  <page-single :page-title="'Peoples'" />
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-import { SET_PORTRAITS_LIST } from '../../store/portraits/actionTypes';
-import PortfolioList from '~/components/PortfolioComponents/PortfolioList';
+import PageSingle from '@/components/PageComponents/PageSingle';
 export default {
-  name: 'PortraitsPage',
+  name: 'PeoplesIndex',
   components: {
-    PortfolioList,
+    PageSingle
   },
-  mounted() {
-    this.fetch();
-  },
-  computed: {
-    ...mapState('portraits', ['portraitsList']),
-  },
-  methods: {
-    ...mapActions('portraits', [SET_PORTRAITS_LIST]),
-    fetch() {
-      console.info('here', this.portraitsList);
-      this[SET_PORTRAITS_LIST]();
-    }
+  head: {
+    title: 'Tomas Zukovskij - People',
+    meta: [
+      {
+        content: 'Tomas Zukovskij people photography. Tomas Zukovskij fotografija.'
+      }
+    ],
   }
 }
 </script>

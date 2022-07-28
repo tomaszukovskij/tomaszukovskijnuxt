@@ -8,8 +8,13 @@
       <img
         :src="image.sourceUrl"
         :alt="image.altText"
-        :class="getImageOrientation(image)"
       >
+      <span
+        v-if="image.caption"
+        class="gallery-item__caption"
+      >
+        #{{ image.caption }}
+      </span>
     </div>
   </div>
 </template>
@@ -20,13 +25,6 @@ export default {
   name: 'PageGalleryImage',
   props: {
     images: t.array,
-  },
-  methods: {
-    getImageOrientation(image) {
-      const width = image.mediaDetails.sizes[0].width;
-      const height = image.mediaDetails.sizes[0].height;
-      return width > height ? 'horizontal' : 'portrait';
-    },
   },
 }
 </script>
@@ -46,17 +44,13 @@ export default {
   }
 }
 img {
-  height: 80vh;
-  @media all and (max-width: 1024px) {
-    &.horizontal {
-      height: auto;
-      width: 100%;
-    }
-  }
-
-  @media all and (max-width: 576px) {
-    height: auto;
-    width: 100%;
-  }
+  width: 100%;
+}
+.gallery-item__caption {
+  display: block;
+  text-align: left;
+  text-transform: lowercase;
+  color: #9d8ad8;
+  font-size: 1rem;
 }
 </style>

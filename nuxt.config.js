@@ -4,14 +4,14 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'tomasportfolio',
+    title: 'Tomas Zukovskij - artist from Vilnius',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Tomas Zukovskij - photography artis from Vilnius, Lithuania.' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -52,7 +52,7 @@ export default {
   'mq': {
     defaultBreakpoint: 'sm',
     breakpoints: {
-      sm: 450,
+      sm: 576,
       md: 1024,
       lg: Infinity,
     }
@@ -60,9 +60,7 @@ export default {
 
   apollo: {
     clientConfigs: {
-      default: {
-        httpEndpoint: 'https://tomaszukovskij.com/admin/graphql',
-      }
+      default: "~/apollo.js"
     },
   },
 
@@ -76,5 +74,9 @@ export default {
         implementation: require('sass'),
       },
     },
+  },
+
+  server: {
+    port: 4500,
   }
 }

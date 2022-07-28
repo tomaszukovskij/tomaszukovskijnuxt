@@ -15,7 +15,10 @@
           :key="index"
         >
           <img :src="item.sourceUrl" :alt="item.altText">
-          <small>{{ item.altText }}</small>
+          <div class="page-gallery__about">
+            <small>{{ item.altText }}</small>
+            <div v-html="item.description"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +35,14 @@ export default {
     return {
       slug: this.$route.params.slug
     };
+  },
+  head: {
+    title: `Tomas Zukovskij - exhibition`,
+    meta: [
+      {
+        content: 'Tomas Zukovskij exhibition photography. Tomas Zukovskij parodos.'
+      }
+    ],
   },
   apollo: {
     exhibitions: {

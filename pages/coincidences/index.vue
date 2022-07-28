@@ -9,6 +9,14 @@ export default {
   components: {
     PageSingle
   },
+  head: {
+    title: 'Tomas Zukovskij - street',
+    meta: [
+      {
+        content: 'Tomas Zukovskij street photography. Tomas Zukovskij gatvės fotografija.'
+      }
+    ],
+  }
 }
 </script>
 

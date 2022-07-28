@@ -22,6 +22,14 @@ export default {
       query: exhibitions,
     },
   },
+  head: {
+    title: 'Tomas Zukovskij - exhibitions',
+    meta: [
+      {
+        content: 'Tomas Zukovskij exhibitions. Tomas Zukovskij parodos.'
+      }
+    ],
+  }
 }
 </script>
 

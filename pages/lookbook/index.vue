@@ -1,19 +1,19 @@
 <template>
-  <page-single :page-title="'About me'" />
+  <page-single :page-title="'Lookbook'" />
 </template>
 
 <script>
 import PageSingle from '@/components/PageComponents/PageSingle';
 export default {
-  name: 'AboutIndex',
+  name: 'LookbookIndex',
   components: {
     PageSingle
   },
   head: {
-    title: 'Tomas Zukovskij - about me',
+    title: 'Tomas Zukovskij - Lookbook',
     meta: [
       {
-        content: 'Tomas Zukovskij about photography. Tomas Zukovskij apie fotografija.'
+        content: 'Tomas Zukovskij lookbook photography. Tomas Zukovskij lookbook fotografija.'
       }
     ],
   }

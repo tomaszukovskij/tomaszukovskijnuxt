@@ -3,9 +3,16 @@ body {
   font-size: 18px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #app {
   padding-top: 50px;
   padding-bottom: 50px;
+  @media all and (max-width: 576px) {
+    padding-top: 0;
+  }
 }
 
 .wrapper {

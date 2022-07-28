@@ -12,6 +12,7 @@ export const exhibitions = gql`
             altText
             slug
             sourceUrl
+            description
           }
         }
       }
@@ -27,6 +28,7 @@ export const singleExhibition = gql`
           altText
           sourceUrl
           slug
+          description
         }
       }
       slug
