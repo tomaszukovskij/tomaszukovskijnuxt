@@ -1,5 +1,7 @@
 <template>
-  <page-single :page-title="'About me'" />
+  <div class="wrapper">
+    <page-single :page-title="'About me'" />
+  </div>
 </template>
 
 <script>
@@ -10,10 +12,10 @@ export default {
     PageSingle
   },
   head: {
-    title: 'Tomas Zukovskij - about me',
+    title: 'Tomas Žukovskij - about me',
     meta: [
       {
-        content: 'Tomas Zukovskij about photography. Tomas Zukovskij apie fotografija.'
+        content: 'Tomas Žukovskij about photography. Tomas Žukovskij apie fotografija.'
       }
     ],
   }

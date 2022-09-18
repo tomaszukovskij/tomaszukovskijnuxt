@@ -36,9 +36,6 @@ export default {
       openMenu: false,
     };
   },
-  beforeRouteEnter(to, from) {
-    this.closeMenu();
-  },
   computed: {
     isMobile() {
       return this.$mq === 'sm';
@@ -55,6 +52,7 @@ export default {
       this.openMenu = !this.openMenu;
     },
     closeMenu(e) {
+      this.$store.commit('setState', true)
       this.openMenu = false;
     },
   },
@@ -66,10 +64,14 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  padding-left: 20px;
-  padding-top: 50px;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  z-index: 100;
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   @media all and (max-width: 576px) {
     padding: 20px 15px;
     width: 100%;
@@ -84,12 +86,10 @@ export default {
   }
 }
 .main-nav__logo a {
-  color: #9d8ad8;
+  color: #006d77;
 }
 .main-nav__menu {
-  padding-top: 100px;
   display: flex;
-  flex-direction: column;
 
   @media all and (max-width: 576px) {
     position: fixed;
@@ -107,7 +107,7 @@ export default {
   }
 
   a {
-    padding: 10px 10px 10px 0;
+    padding: 10px 20px;
 
     @media all and (max-width: 576px) {
       padding: 20px;
@@ -116,7 +116,7 @@ export default {
     }
 
     &.nuxt-link-active {
-      color: #9d8ad8;
+      color: #006d77;
     }
   }
 }

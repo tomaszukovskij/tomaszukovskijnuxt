@@ -1,17 +1,17 @@
 <template>
-  <div class="wrapper">
+  <div>
     <page-visual
-      :locale-title="'Lookbook arba produktų fotografija'"
+      :locale-title="'Portretai'"
       :pages="pages"
     />
   </div>
 </template>
 
 <script>
-import { singlePage } from '@/graphql/pages';
 import PageVisual from '@/components/PageVisual/PageVisual';
+import { singlePage } from '@/graphql/pages';
 export default {
-  name: 'LookbookIndex',
+  name: 'PortraitsIndex',
   components: {
     PageVisual,
   },
@@ -22,17 +22,17 @@ export default {
       prefetch: true,
       fetchPolicy: 'cache-first',
       variables: {
-        title: 'Lookbook',
+        title: 'Portraits',
       },
     });
     const { pages } = res.data;
     return { pages };
   },
   head: {
-    title: 'Tomas Žukovskij - Lookbook',
+    title: 'Tomas Žukovskij - People',
     meta: [
       {
-        content: 'Tomas Žukovskij lookbook photography. Tomas Žukovskij lookbook fotografija.'
+        content: 'Tomas Žukovskij people photography. Tomas Žukovskij fotografija.'
       }
     ],
   }

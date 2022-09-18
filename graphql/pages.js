@@ -21,6 +21,10 @@ export const singlePage = gql`
             altText
             description
           }
+          headingText
+          headingTextEn
+          serviceBulletPointLt
+          serviceBulletPointEn
         }
         slug
         title

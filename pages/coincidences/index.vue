@@ -1,5 +1,7 @@
 <template>
-  <page-single :page-title="'Coincidences'" />
+  <div class="wrapper">
+    <page-single :page-title="'Coincidences'" />
+  </div>
 </template>
 
 <script>
@@ -10,10 +12,10 @@ export default {
     PageSingle
   },
   head: {
-    title: 'Tomas Zukovskij - street',
+    title: 'Tomas Žukovskij - street',
     meta: [
       {
-        content: 'Tomas Zukovskij street photography. Tomas Zukovskij gatvės fotografija.'
+        content: 'Tomas Žukovskij street photography. Tomas Žukovskij gatvės fotografija.'
       }
     ],
   }

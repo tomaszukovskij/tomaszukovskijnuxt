@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <h1>Exhibitions</h1>
     <div v-if="$apollo.loading">Loading...</div>
     <portfolio-list
@@ -23,10 +23,10 @@ export default {
     },
   },
   head: {
-    title: 'Tomas Zukovskij - exhibitions',
+    title: 'Tomas Žukovskij - exhibitions',
     meta: [
       {
-        content: 'Tomas Zukovskij exhibitions. Tomas Zukovskij parodos.'
+        content: 'Tomas Žukovskij exhibitions. Tomas Žukovskij parodos.'
       }
     ],
   }

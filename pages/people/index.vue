@@ -1,5 +1,7 @@
 <template>
-  <page-single :page-title="'Peoples'" />
+  <div class="wrapper">
+    <page-single :page-title="'Portraits'" />
+  </div>
 </template>
 
 <script>
@@ -10,10 +12,10 @@ export default {
     PageSingle
   },
   head: {
-    title: 'Tomas Zukovskij - People',
+    title: 'Tomas Žukovskij - People',
     meta: [
       {
-        content: 'Tomas Zukovskij people photography. Tomas Zukovskij fotografija.'
+        content: 'Tomas Žukovskij people photography. Tomas Žukovskij fotografija.'
       }
     ],
   }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div v-if="$apollo.loading">Loading...</div>
     <div v-else>
       <h1>{{ exhibitions.title }}</h1>
@@ -13,10 +13,11 @@
         <div
           v-for="(item, index) in exhibitions.exhibitions.gallery"
           :key="index"
+          class="page-gallery__item"
         >
           <img :src="item.sourceUrl" :alt="item.altText">
           <div class="page-gallery__about">
-            <small>{{ item.altText }}</small>
+            <h3>{{ item.altText }}</h3>
             <div v-html="item.description"></div>
           </div>
         </div>
@@ -37,10 +38,10 @@ export default {
     };
   },
   head: {
-    title: `Tomas Zukovskij - exhibition`,
+    title: `Tomas Žukovskij - exhibition`,
     meta: [
       {
-        content: 'Tomas Zukovskij exhibition photography. Tomas Zukovskij parodos.'
+        content: 'Tomas Žukovskij exhibition photography. Tomas Žukovskij parodos.'
       }
     ],
   },
@@ -64,4 +65,19 @@ export default {
 
 <style scoped lang="scss">
 @import "../../assets/styles/singlePage.scss";
+.page-gallery {
+  margin-top: 100px;
+}
+.page-gallery__about {
+  padding: 20px;
+  @media all and (max-width: 576px) {
+    padding: 0;
+  }
+}
+.page-gallery__item {
+  margin-bottom: 40px;
+  @media all and (max-width: 576px) {
+    margin-bottom: 10px;
+  }
+}
 </style>

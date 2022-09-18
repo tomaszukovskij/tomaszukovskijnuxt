@@ -1,6 +1,9 @@
 <template>
   <div id="page-gallery">
-    <page-gallery-images :images="desktopGallery" />
+    <page-gallery-images
+      :images="desktopGallery"
+      :order-view="orderView"
+    />
   </div>
 </template>
 
@@ -14,6 +17,7 @@ export default {
   },
   props: {
     desktopGallery: t.array,
+    orderView: t.bool.def(false),
   },
 }
 </script>

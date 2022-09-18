@@ -1,14 +1,14 @@
 <template>
   <div v-if="$apollo.loading">Loading...</div>
   <div
-      v-else
-      class="page-text"
+    v-else
+    class="page-text"
   >
     <h1>{{ displayPageTitle }}</h1>
     <div
       v-if="pageContent"
-      v-html="pageContent"
       class="page-content"
+      v-html="pageContent"
     />
     <page-gallery
       v-if="pageGallery"
@@ -18,13 +18,16 @@
 </template>
 
 <script>
-import t from 'vue-types';
+import { string } from 'vue-types';
 import { singlePage } from '@/graphql/pages';
 import PageGallery from '@/components/PageComponents/PageGallery';
 export default {
   name: 'PageSingle',
+  components: {
+    PageGallery,
+  },
   props: {
-    pageTitle: t.string,
+    pageTitle: string,
   },
   apollo: {
     pages: {
@@ -38,9 +41,6 @@ export default {
       },
     },
   },
-  components: {
-    PageGallery,
-  },
   computed: {
     displayPageTitle() {
       return this.pages.nodes[0].title;
@@ -51,6 +51,14 @@ export default {
     pageGallery() {
       return this.pages.nodes[0].peoplesPage.gallery;
     },
+  },
+  mounted() {
+    this.changeLoadingState();
+  },
+  methods: {
+    changeLoadingState() {
+      this.$store.commit('setState', false);
+    }
   }
 }
 </script>

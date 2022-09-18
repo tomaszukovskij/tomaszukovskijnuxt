@@ -5,26 +5,31 @@
       :key="image.slug"
       class="gallery-item"
     >
-      <img
-        :src="image.sourceUrl"
-        :alt="image.altText"
+      <div
+        :class="[{'order-default': orderView}, image.caption]"
       >
-      <span
-        v-if="image.caption"
-        class="gallery-item__caption"
-      >
-        #{{ image.caption }}
+        <img
+          :src="image.sourceUrl"
+          :alt="image.altText"
+        >
+        <span
+          v-if="image.description"
+          class="gallery-item__caption"
+        >
+        # <p v-html="image.description"></p>
       </span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import t from 'vue-types';
+import { array, bool } from 'vue-types';
 export default {
   name: 'PageGalleryImage',
   props: {
-    images: t.array,
+    images: array,
+    orderView: bool,
   },
 }
 </script>
@@ -47,10 +52,34 @@ img {
   width: 100%;
 }
 .gallery-item__caption {
-  display: block;
+  display: flex;
   text-align: left;
   text-transform: lowercase;
   color: #9d8ad8;
   font-size: 1rem;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+}
+.order-default {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 10%;
+  @media all and (max-width: 576px) {
+    padding: 0 40px;
+  }
+}
+.top-to-left {
+  max-width: none;
+  padding: 0;
+}
+.small-to-right {
+  padding-left: 40%;
+  padding-right: 0;
+  max-width: 1500px;
+}
+.small-to-center {
+  max-width: 60%;
 }
 </style>
