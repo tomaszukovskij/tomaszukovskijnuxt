@@ -13,18 +13,43 @@
     >
       {{ toggleMenuText }}
     </div>
-    <div
+    <ul
       class="main-nav__menu"
       :class="toggleOpenClass"
       @click="closeMenu"
     >
-      <nuxt-link to="/people" >People</nuxt-link>
-      <nuxt-link to="/lookbook" >LookBook</nuxt-link>
-      <nuxt-link to="/exhibitions" >Exhibitions</nuxt-link>
-      <nuxt-link to="/coincidences" >Coincidences</nuxt-link>
-      <nuxt-link to="/about" >About me</nuxt-link>
-      <a href="https://baltikrastai.lt" target="_blank">Print store</a>
-    </div>
+      <li class="main-nav__menu__has-children">
+        <span class="main-nav__span">Paslaugos</span>
+        <ul class="main-nav__submenu">
+          <li>
+            <nuxt-link to="/portraits" >Portretai</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/lookbook" >LookBook ir produktai</nuxt-link>
+          </li>
+        </ul>
+      </li>
+      <li class="main-nav__menu__has-children">
+        <span class="main-nav__span">Portfolio</span>
+        <ul class="main-nav__submenu">
+          <li>
+            <nuxt-link to="/portraits" >Peoples</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/coincidences" >Coincidences</nuxt-link>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <nuxt-link to="/exhibitions" >Exhibitions</nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/about" >About me</nuxt-link>
+      </li>
+      <li>
+        <a href="https://baltikrastai.lt" target="_blank">Print store</a>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -65,7 +90,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 15px 20px;
   background: #fff;
   z-index: 100;
   font-size: 1rem;
@@ -88,6 +113,14 @@ export default {
 .main-nav__logo a {
   color: #006d77;
 }
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  li {
+    position: relative;
+  }
+}
 .main-nav__menu {
   display: flex;
 
@@ -106,8 +139,11 @@ export default {
     }
   }
 
-  a {
+  a, span {
     padding: 10px 20px;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
 
     @media all and (max-width: 576px) {
       padding: 20px;
@@ -127,5 +163,20 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.main-nav__submenu {
+  position: absolute;
+  background: #fff;
+  z-index: 2;
+  top: 30px;
+  left: 0;
+  display: none;
+}
+.main-nav__menu__has-children {
+  &:hover {
+    .main-nav__submenu {
+      display: block;
+    }
+  }
 }
 </style>
