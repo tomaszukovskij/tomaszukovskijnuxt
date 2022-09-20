@@ -168,15 +168,41 @@ ul {
   position: absolute;
   background: #fff;
   z-index: 2;
+  padding: 10px 0;
   top: 30px;
   left: 0;
   display: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 .main-nav__menu__has-children {
   &:hover {
     .main-nav__submenu {
       display: block;
     }
+    .main-nav__span::after {
+      transform: rotate(180deg);
+      transform-origin: right center;
+      right: 12px;
+    }
+  }
+}
+.main-nav__span {
+  padding-right: 20px;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: url("../../assets/img/angle-down-solid.svg") right center no-repeat;
+    background-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -10px;
   }
 }
 </style>

@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <AppMenu />
+    <app-menu />
     <main>
       <transition name="home">
         <nuxt />
       </transition>
     </main>
+    <app-footer />
   </div>
 </template>
 <script>
