@@ -6,6 +6,7 @@
 
 <script>
 import PageSingle from '@/components/PageComponents/PageSingle';
+import { backToTop } from '@/services/helpers';
 export default {
   name: 'PeoplesIndex',
   components: {
@@ -18,7 +19,10 @@ export default {
         content: 'Tomas Žukovskij people photography. Tomas Žukovskij fotografija.'
       }
     ],
-  }
+  },
+  mounted() {
+    backToTop();
+  },
 }
 </script>
 

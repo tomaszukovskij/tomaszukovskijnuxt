@@ -1,15 +1,15 @@
 <template>
-  <div class="wrapper">
-    <page-visual
-      :locale-title="'Lookbook arba produktų fotografija'"
-      :pages="pages"
-    />
-  </div>
+  <page-visual
+    :locale-title="'Lookbook arba produktų fotografija'"
+    :pages="pages"
+  />
 </template>
 
 <script>
 import { singlePage } from '@/graphql/pages';
 import PageVisual from '@/components/PageVisual/PageVisual';
+import { backToTop } from '@/services/helpers';
+
 export default {
   name: 'LookbookIndex',
   components: {
@@ -35,7 +35,10 @@ export default {
         content: 'Tomas Žukovskij lookbook photography. Tomas Žukovskij lookbook fotografija.'
       }
     ],
-  }
+  },
+  mounted() {
+    backToTop();
+  },
 }
 </script>
 

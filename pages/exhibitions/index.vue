@@ -12,6 +12,8 @@
 <script>
 import PortfolioList from '~/components/PortfolioComponents/PortfolioList';
 import { exhibitions } from '@/graphql/exhibitions';
+import { backToTop } from '@/services/helpers';
+
 export default {
   name: 'ExhibitionsIndex',
   components: {
@@ -29,10 +31,9 @@ export default {
         content: 'Tomas Žukovskij exhibitions. Tomas Žukovskij parodos.'
       }
     ],
-  }
+  },
+  mounted() {
+    backToTop();
+  },
 }
 </script>
-
-<style scoped>
-
-</style>

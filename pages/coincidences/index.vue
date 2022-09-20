@@ -6,6 +6,8 @@
 
 <script>
 import PageSingle from '@/components/PageComponents/PageSingle';
+import { backToTop } from '@/services/helpers';
+
 export default {
   name: 'CoincidencesIndex',
   components: {
@@ -18,10 +20,9 @@ export default {
         content: 'Tomas Žukovskij street photography. Tomas Žukovskij gatvės fotografija.'
       }
     ],
-  }
+  },
+  mounted() {
+    backToTop();
+  },
 }
 </script>
-
-<style scoped>
-
-</style>

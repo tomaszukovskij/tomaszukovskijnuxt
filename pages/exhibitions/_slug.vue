@@ -29,6 +29,7 @@
 <script>
 
 import { singleExhibition } from '@/graphql/exhibitions';
+import { backToTop } from '@/services/helpers';
 
 export default {
   name: 'PeopleSlug',
@@ -59,6 +60,9 @@ export default {
     pageTitle() {
       return 'Tomas';
     }
+  },
+  mounted() {
+    backToTop();
   },
 }
 </script>

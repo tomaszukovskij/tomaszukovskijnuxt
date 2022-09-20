@@ -10,6 +10,7 @@
 <script>
 import PageVisual from '@/components/PageVisual/PageVisual';
 import { singlePage } from '@/graphql/pages';
+import { backToTop } from '@/services/helpers';
 export default {
   name: 'BusinesssIndex',
   components: {
@@ -35,7 +36,10 @@ export default {
         content: 'Tomas Žukovskij people photography. Tomas Žukovskij fotografija.'
       }
     ],
-  }
+  },
+  mounted() {
+    backToTop();
+  },
 }
 </script>
 

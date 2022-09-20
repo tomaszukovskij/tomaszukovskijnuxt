@@ -39,6 +39,9 @@ export default {
   width: 100%;
   margin-bottom: 20vh;
   text-align: center;
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   @media all and (max-width: 1024px) {
     margin-bottom: 15vh;

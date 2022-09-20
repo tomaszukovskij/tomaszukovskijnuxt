@@ -25,7 +25,10 @@
             <nuxt-link to="/portraits" >Portretai</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/lookbook" >LookBook ir produktai</nuxt-link>
+            <nuxt-link to="/business" >Verslui įvaizdinė</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/lookbook" >Lookbook ir produktai</nuxt-link>
           </li>
         </ul>
       </li>

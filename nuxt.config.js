@@ -1,3 +1,5 @@
+import lt from './i18n/lt'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -46,8 +48,23 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
-    'nuxt-mq'
+    '@nuxtjs/i18n',
+    'nuxt-mq',
   ],
+
+  i18n: {
+    locales: ['en', 'lt'],
+    defaultLocale: 'lt',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        lt,
+        es: {
+          welcome: 'Bienvenido'
+        }
+      }
+    }
+  },
 
   'mq': {
     defaultBreakpoint: 'sm',
@@ -79,8 +96,4 @@ export default {
   server: {
     port: 4500,
   },
-
-  router: {
-    middleware: ['toTop']
-  }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="page-text">
-      <h1>Tomas Zukovskij fotografas kuris nenori, kad atrodytumet kaip VISI</h1>
+      <h1>{{ $t('indexSlogan') }}</h1>
       <div class="page__index__services">
         <nuxt-link
           to="/portraits"
@@ -15,10 +15,10 @@
           </div>
           <div class="page__index__services__info">
             <div>
-              <h3>Portretai</h3>
-              <span>nuo 300€</span>
+              <h3>{{ $t('services.portraits')}}</h3>
+              <span>{{ $t('common.from') }} {{ portraitsPrice }}€</span>
             </div>
-            <small>plačiau</small>
+            <small>{{ $t('common.more') }}</small>
           </div>
         </nuxt-link>
         <nuxt-link
@@ -33,10 +33,10 @@
           </div>
           <div class="page__index__services__info">
             <div>
-              <h3>Verslui įvaizdinė <br> fotosesija</h3>
-              <span>nuo 550€</span>
+              <h3>{{ $t('services.business')}}</h3>
+              <span>{{ $t('common.from') }} {{ businessPrice }}€</span>
             </div>
-            <small>plačiau</small>
+            <small>{{ $t('common.more') }}</small>
           </div>
         </nuxt-link>
         <nuxt-link
@@ -51,10 +51,10 @@
           </div>
           <div class="page__index__services__info">
             <div>
-              <h3>Lookbook arba <br> produktų fotografija</h3>
-              <span>nuo 550€</span>
+              <h3>{{ $t('services.lookbook')}}</h3>
+              <span>{{ $t('common.from') }} {{ lookbookPrice }}€</span>
             </div>
-            <small>plačiau</small>
+            <small>{{ $t('common.more') }}</small>
           </div>
         </nuxt-link>
       </div>
@@ -64,6 +64,7 @@
 
 <script>
 import { HomePage } from '@/graphql/homepage';
+import { backToTop } from '@/services/helpers';
 
 export default {
   name: 'IndexPage',
@@ -85,13 +86,25 @@ export default {
     portraitsImage() {
       return this.pages.nodes[this.nodesLength].homepage.portraitsImage;
     },
+    portraitsPrice() {
+      return this.pages.nodes[this.nodesLength].homepage.portraitsPrice;
+    },
     businessImage() {
       return this.pages.nodes[this.nodesLength].homepage.businessImage;
     },
+    businessPrice() {
+      return this.pages.nodes[this.nodesLength].homepage.businessPrice;
+    },
     lookbookImage() {
       return this.pages.nodes[this.nodesLength].homepage.lookbookImage;
-    }
-  }
+    },
+    lookbookPrice() {
+      return this.pages.nodes[this.nodesLength].homepage.lookbookPrice;
+    },
+  },
+  mounted() {
+    backToTop();
+  },
 }
 </script>
 
@@ -153,6 +166,7 @@ h1 {
       margin-top: 15px;
       margin-bottom: 10px;
       line-height: 1.2;
+      white-space: pre-line;
     }
     span {
       margin-bottom: 10px;
