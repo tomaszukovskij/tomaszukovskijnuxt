@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="wrapper">
       <h1>Page not found</h1>
       <p v-if="statusCode === 404">
         <nuxt-link to="/">Return to homepage</nuxt-link>
@@ -28,7 +28,10 @@ export default {
     message() {
       return this.error.message
     },
-  }
+  },
+  mounted() {
+    this.$store.dispatch('updateMenuOpen', false)
+  },
 }
 </script>
 

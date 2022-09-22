@@ -16,41 +16,44 @@
     <ul
       class="main-nav__menu"
       :class="toggleOpenClass"
-      @click="closeMenu"
     >
       <li class="main-nav__menu__has-children">
-        <span class="main-nav__span">Paslaugos</span>
+        <span class="main-nav__span">
+          <p>{{ $t('menu.services') }}</p>
+        </span>
         <ul class="main-nav__submenu">
           <li>
-            <nuxt-link to="/portraits" >Portretai</nuxt-link>
+            <nuxt-link to="/portraits" >{{ $t('services.portraits') }}</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/business" >Verslui įvaizdinė</nuxt-link>
+            <nuxt-link to="/business" >{{ $t('services.business') }}</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/lookbook" >Lookbook ir produktai</nuxt-link>
+            <nuxt-link to="/lookbook" >{{ $t('services.lookbook' )}}</nuxt-link>
           </li>
         </ul>
       </li>
       <li class="main-nav__menu__has-children">
-        <span class="main-nav__span">Portfolio</span>
+        <span class="main-nav__span">
+          <p>{{ $t('menu.portfolio') }}</p>
+        </span>
         <ul class="main-nav__submenu">
           <li>
-            <nuxt-link to="/portraits" >Peoples</nuxt-link>
+            <nuxt-link to="/peoples" >{{ $t('menu.peoples') }}</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/coincidences" >Coincidences</nuxt-link>
+            <nuxt-link to="/coincidences" >{{ $t('menu.coincidences') }}</nuxt-link>
           </li>
         </ul>
       </li>
       <li>
-        <nuxt-link to="/exhibitions" >Exhibitions</nuxt-link>
+        <nuxt-link to="/exhibitions" >{{ $t('menu.exhibitions') }}</nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/about" >About me</nuxt-link>
+        <nuxt-link to="/about" >{{ $t('menu.aboutMe') }}</nuxt-link>
       </li>
       <li>
-        <a href="https://baltikrastai.lt" target="_blank">Print store</a>
+        <a href="https://baltikrastai.lt" target="_blank">{{ $t('menu.store') }}</a>
       </li>
     </ul>
   </nav>
@@ -69,19 +72,22 @@ export default {
       return this.$mq === 'sm';
     },
     toggleOpenClass() {
-      return this.openMenu ? 'open' : '';
+      return this.isMenuOpen ? 'open' : '';
     },
     toggleMenuText() {
-      return this.openMenu ? 'close' : 'Menu';
+      return this.isMenuOpen ? 'close' : 'Menu';
     },
+    isMenuOpen() {
+      return this.$store.state.menuOpen;
+    }
   },
   methods: {
     toggleMenu() {
       this.openMenu = !this.openMenu;
+      this.$store.dispatch('updateMenuOpen', !this.isMenuOpen)
     },
     closeMenu(e) {
-      this.$store.commit('setState', true)
-      this.openMenu = false;
+      this.$store.dispatch('updateMenuOpen', false)
     },
   },
 }
@@ -139,6 +145,7 @@ ul {
 
     &.open {
       display: flex;
+      flex-direction: column;
     }
   }
 
@@ -185,7 +192,7 @@ ul {
     .main-nav__submenu {
       display: block;
     }
-    .main-nav__span::after {
+    .main-nav__span p::after {
       transform: rotate(180deg);
       transform-origin: right center;
       right: 12px;
@@ -193,19 +200,23 @@ ul {
   }
 }
 .main-nav__span {
-  padding-right: 20px;
-  position: relative;
   cursor: pointer;
-  &::after {
-    content: "";
-    width: 20px;
-    height: 20px;
-    background: url("../../assets/img/angle-down-solid.svg") right center no-repeat;
-    background-size: 12px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: -10px;
+  p {
+    padding-right: 20px;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    &::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: url("../../assets/img/angle-down-solid.svg") right center no-repeat;
+      background-size: 12px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-top: -10px;
+    }
   }
 }
 </style>

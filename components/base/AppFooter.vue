@@ -30,6 +30,11 @@ footer {
   font-family: 'Oxygen', sans-serif;
   margin-top: 100px;
 }
+#footer {
+  @media all and (max-width: 576px) {
+    flex-direction: column;
+  }
+}
 #footer, .footer__contact {
   display: flex;
   align-items: center;

@@ -8,5 +8,14 @@ export default {
     portraits: 'Portretai',
     business: 'Verslui įvaizdinė \n fotosesija',
     lookbook: 'Lookbook arba \n produktų fotografija'
+  },
+  menu: {
+    services: 'Paslaugos',
+    portfolio: 'Portfolio',
+    peoples: 'Žmonės',
+    coincidences: 'Atsitiktinumai',
+    exhibitions: 'Parodos',
+    aboutMe: 'Apie kūrėja',
+    store: 'Parduotuvė'
   }
 }

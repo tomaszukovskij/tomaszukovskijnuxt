@@ -34,6 +34,7 @@ export default {
   },
   mounted() {
     backToTop();
+    this.$store.dispatch('updateMenuOpen', false)
   },
 }
 </script>

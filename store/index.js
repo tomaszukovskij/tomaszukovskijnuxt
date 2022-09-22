@@ -1,9 +1,21 @@
-export const state = () => ({
-  loading: false,
-})
+import { Store } from 'vuex';
 
-export const mutations = {
-  setState (state, bodyClass) {
-    state.loading = bodyClass
-  }
+const createStore = () => {
+  return new Store({
+    state: {
+      menuOpen: false,
+    },
+    mutations: {
+      setMenuOpen (state, payload) {
+        state.menuOpen = payload;
+      }
+    },
+    actions: {
+      updateMenuOpen({ commit }, payload) {
+        commit('setMenuOpen', payload);
+      }
+    }
+  })
 }
+
+export default createStore;
