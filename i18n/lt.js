@@ -1,5 +1,6 @@
 export default {
   indexSlogan: 'Tomas Zukovskij fotografas kuris nenori, kad atrodytumet kaip VISI',
+  indexBestWorks: 'Asmeniniai darbai',
   common: {
     from: 'nuo',
     more: 'plačiau'

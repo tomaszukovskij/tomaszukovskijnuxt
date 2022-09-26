@@ -27,6 +27,23 @@ export const HomePage = gql`
             id
           }
         }
+        peoplesPage {
+          title
+          gallery {
+            altText
+            slug
+            sourceUrl
+            mediaDetails {
+              sizes {
+                width
+                height
+              }
+            }
+            caption
+            altText
+            description
+          }
+        }
       }
     }
   }`

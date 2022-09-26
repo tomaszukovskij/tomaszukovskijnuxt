@@ -1,73 +1,86 @@
 <template>
-  <div class="wrapper">
-    <div class="page-text">
-      <h1>{{ $t('indexSlogan') }}</h1>
-      <div class="page__index__services">
-        <nuxt-link
-          to="/portraits"
-          class="page__index__services__item"
-        >
-          <div class="page__index__services__image">
-            <img
-              :src="portraitsImage.sourceUrl"
-              :alt="portraitsImage.altText"
-            >
-          </div>
-          <div class="page__index__services__info">
-            <div>
-              <h3>{{ $t('services.portraits')}}</h3>
-              <span>{{ $t('common.from') }} {{ portraitsPrice }}€</span>
+  <div>
+    <div class="wrapper">
+      <section class="page-text">
+        <h1>{{ $t('indexSlogan') }}</h1>
+        <div class="page__index__services">
+          <nuxt-link
+            to="/portraits"
+            class="page__index__services__item"
+          >
+            <div class="page__index__services__image">
+              <img
+                :src="portraitsImage.sourceUrl"
+                :alt="portraitsImage.altText"
+              >
             </div>
-            <small>{{ $t('common.more') }}</small>
-          </div>
-        </nuxt-link>
-        <nuxt-link
-          to="/business"
-          class="page__index__services__item"
-        >
-          <div class="page__index__services__image">
-            <img
-              :src="businessImage.sourceUrl"
-              :alt="businessImage.altText"
-            >
-          </div>
-          <div class="page__index__services__info">
-            <div>
-              <h3>{{ $t('services.business')}}</h3>
-              <span>{{ $t('common.from') }} {{ businessPrice }}€</span>
+            <div class="page__index__services__info">
+              <div>
+                <h3>{{ $t('services.portraits')}}</h3>
+                <span>{{ $t('common.from') }} {{ portraitsPrice }}€</span>
+              </div>
+              <small>{{ $t('common.more') }}</small>
             </div>
-            <small>{{ $t('common.more') }}</small>
-          </div>
-        </nuxt-link>
-        <nuxt-link
-          to="/lookbook"
-          class="page__index__services__item"
-        >
-          <div class="page__index__services__image">
-            <img
-              :src="lookbookImage.sourceUrl"
-              :alt="lookbookImage.altText"
-            >
-          </div>
-          <div class="page__index__services__info">
-            <div>
-              <h3>{{ $t('services.lookbook')}}</h3>
-              <span>{{ $t('common.from') }} {{ lookbookPrice }}€</span>
+          </nuxt-link>
+          <nuxt-link
+            to="/business"
+            class="page__index__services__item"
+          >
+            <div class="page__index__services__image">
+              <img
+                :src="businessImage.sourceUrl"
+                :alt="businessImage.altText"
+              >
             </div>
-            <small>{{ $t('common.more') }}</small>
-          </div>
-        </nuxt-link>
-      </div>
+            <div class="page__index__services__info">
+              <div>
+                <h3>{{ $t('services.business')}}</h3>
+                <span>{{ $t('common.from') }} {{ businessPrice }}€</span>
+              </div>
+              <small>{{ $t('common.more') }}</small>
+            </div>
+          </nuxt-link>
+          <nuxt-link
+            to="/lookbook"
+            class="page__index__services__item"
+          >
+            <div class="page__index__services__image">
+              <img
+                :src="lookbookImage.sourceUrl"
+                :alt="lookbookImage.altText"
+              >
+            </div>
+            <div class="page__index__services__info">
+              <div>
+                <h3>{{ $t('services.lookbook')}}</h3>
+                <span>{{ $t('common.from') }} {{ lookbookPrice }}€</span>
+              </div>
+              <small>{{ $t('common.more') }}</small>
+            </div>
+          </nuxt-link>
+        </div>
+      </section>
     </div>
+    <section id="portfolio">
+      <h2>{{ $t('indexBestWorks') }}</h2>
+      <page-gallery
+        :desktop-gallery="bestWorksGallery"
+        :is-index="true"
+      />
+    </section>
   </div>
 </template>
 
 <script>
 import { HomePage } from '@/graphql/homepage';
+import PageGallery from '@/components/PageComponents/PageGallery';
 import { backToTop } from '@/services/helpers';
 
 export default {
   name: 'IndexPage',
+  components: {
+    PageGallery,
+  },
   async asyncData({ app }) {
     const client = app.apolloProvider.defaultClient;
     const res = await client.query({
@@ -100,6 +113,9 @@ export default {
     },
     lookbookPrice() {
       return this.pages.nodes[this.nodesLength].homepage.lookbookPrice;
+    },
+    bestWorksGallery() {
+      return this.pages.nodes[this.nodesLength].peoplesPage.gallery;
     },
   },
   mounted() {
@@ -176,6 +192,16 @@ h1 {
       width: 25%;
       text-align: center;
     }
+  }
+}
+#portfolio {
+  max-width: 1420px;
+  margin: 200px auto 0 auto;
+  text-align: center;
+  h2 {
+    margin-bottom: 100px;
+    font-size: 2.5em;
+    font-weight: 400;
   }
 }
 </style>

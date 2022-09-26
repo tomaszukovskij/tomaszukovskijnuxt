@@ -1,19 +1,26 @@
 <template>
-  <div>
+  <div
+    id="page-gallery"
+    :class="{ 'index-gallery': isIndex }"
+  >
     <div
       v-for="image in images"
       :key="image.slug"
       class="gallery-item"
     >
       <div
-        :class="[{'order-default': orderView}, image.caption]"
+        :class="[
+          {'order-default': orderView},
+          imageCaption(image),
+          getImageOrentation(image)
+         ]"
       >
         <img
           :src="image.sourceUrl"
           :alt="image.altText"
         >
         <span
-          v-if="image.description"
+          v-if="image.description && !isIndex"
           class="gallery-item__caption"
         >
         # <p v-html="image.description"></p>
@@ -30,11 +37,33 @@ export default {
   props: {
     images: array,
     orderView: bool,
+    isIndex: bool,
+  },
+  methods: {
+    imageCaption(image) {
+      if(!this.isIndex) return image.caption;
+    },
+    getImageOrentation(image) {
+      if(this.isIndex) {
+        const width = image.mediaDetails.sizes[0].width;
+        const height = image?.mediaDetails.sizes[0].height;
+        if( width > height) {
+          return 'landscape'
+        }
+        return 'portrait';
+      }
+    }
   },
 }
 </script>
 
 <style scoped lang="scss">
+#page-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 .gallery-item {
   width: 100%;
   margin-bottom: 20vh;
@@ -73,16 +102,20 @@ img {
     padding: 0 40px;
   }
 }
-.top-to-left {
+
+.top-to-left:not(.index-gallery) {
   max-width: none;
   padding: 0;
 }
-.small-to-right {
+.small-to-right:not(.index-gallery) {
   padding-left: 40%;
   padding-right: 0;
   max-width: 1500px;
 }
-.small-to-center {
+.small-to-center:not(.index-gallery) {
   max-width: 60%;
+}
+.portrait {
+  padding: 0 20%;
 }
 </style>

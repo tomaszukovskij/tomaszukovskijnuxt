@@ -1,8 +1,9 @@
 <template>
-  <div id="page-gallery">
+  <div>
     <page-gallery-images
       :images="desktopGallery"
       :order-view="orderView"
+      :is-index="isIndex"
     />
   </div>
 </template>
@@ -18,15 +19,7 @@ export default {
   props: {
     desktopGallery: t.array,
     orderView: t.bool.def(false),
+    isIndex: t.bool.def(false),
   },
 }
 </script>
-
-<style scoped lang="scss">
-#page-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-</style>
