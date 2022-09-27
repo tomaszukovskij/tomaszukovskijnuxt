@@ -67,6 +67,15 @@
         :desktop-gallery="bestWorksGallery"
         :is-index="true"
       />
+      <button
+        v-if="!showMoreGalleryItems"
+        id="showMore"
+        type="button"
+        :aria-label="$t('indexMore')"
+        @click="showMoreGalleryItems = true"
+      >
+        {{ $t('indexMore') }}
+      </button>
     </section>
   </div>
 </template>
@@ -80,6 +89,11 @@ export default {
   name: 'IndexPage',
   components: {
     PageGallery,
+  },
+  data() {
+    return {
+      showMoreGalleryItems: false,
+    }
   },
   async asyncData({ app }) {
     const client = app.apolloProvider.defaultClient;
@@ -115,12 +129,14 @@ export default {
       return this.pages.nodes[this.nodesLength].homepage.lookbookPrice;
     },
     bestWorksGallery() {
-      return this.pages.nodes[this.nodesLength].peoplesPage.gallery;
+      return !this.showMoreGalleryItems
+        ? this.pages.nodes[this.nodesLength].peoplesPage.gallery.slice(0, 4)
+        : this.pages.nodes[this.nodesLength].peoplesPage.gallery;
     },
   },
   mounted() {
     backToTop();
-    this.$store.dispatch('updateMenuOpen', false)
+    this.$store.dispatch('updateMenuOpen', false);
   },
 }
 </script>
@@ -128,6 +144,10 @@ export default {
 <style lang="scss" scoped>
 h1 {
   font-size: 4em;
+  @media all and (max-width: 576px) {
+    font-size: 3em;
+    line-height: 1.4;
+  }
 }
 .page__index__services {
   display: flex;
@@ -137,6 +157,10 @@ h1 {
   gap: 80px;
   max-width: 500px;
   margin: 0 auto;
+
+  @media all and (max-width: 576px) {
+    gap: 60px;
+  }
 
   &__item {
     position: relative;
@@ -198,10 +222,34 @@ h1 {
   max-width: 1420px;
   margin: 200px auto 0 auto;
   text-align: center;
+  @media all and (max-width: 576px) {
+    margin-top: 100px;
+  }
   h2 {
     margin-bottom: 100px;
     font-size: 2.5em;
     font-weight: 400;
+    padding: 0 30px;
+
+    @media all and (max-width: 576px) {
+      font-size: 2.3em;
+      margin-bottom: 60px;
+    }
+  }
+}
+#showMore {
+  background: none;
+  border: 0;
+  outline: 0;
+  font-size: .8em;
+  background: #3e8c94;
+  color: #fff;
+  padding: 15px 30px;
+  margin-top: 50px;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background: #006d77;
   }
 }
 </style>

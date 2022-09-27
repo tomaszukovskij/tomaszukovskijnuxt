@@ -10,8 +10,16 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'DefaultPage',
+  mounted() {
+    this.getCurrentLocale();
+  },
+  methods: {
+    ...mapActions(['getCurrentLocale']),
+  }
 }
 </script>
 

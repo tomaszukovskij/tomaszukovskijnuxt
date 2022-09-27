@@ -1,10 +1,8 @@
 <template>
-  <div v-if="$apollo.loading">Loading...</div>
   <div
-    v-else
     class="page-text"
   >
-    <h1>{{ displayPageTitle }}</h1>
+    <h1>{{ pageTitle }}</h1>
     <div
       v-if="pageContent"
       class="page-content"
@@ -18,8 +16,7 @@
 </template>
 
 <script>
-import { string } from 'vue-types';
-import { singlePage } from '@/graphql/pages';
+import { string, array } from 'vue-types';
 import PageGallery from '@/components/PageComponents/PageGallery';
 export default {
   name: 'PageSingle',
@@ -28,23 +25,9 @@ export default {
   },
   props: {
     pageTitle: string,
-  },
-  apollo: {
-    pages: {
-      query: singlePage,
-      prefetch: true,
-      fetchPolicy: 'cache-first',
-      variables () {
-        return {
-          title: this.pageTitle,
-        }
-      },
-    },
+    pages: array,
   },
   computed: {
-    displayPageTitle() {
-      return this.pages.nodes[0].title;
-    },
     pageContent() {
       return this.pages.nodes[0].content;
     },

@@ -46,15 +46,19 @@ export default {
       }
     ],
   },
-  apollo: {
-    exhibitions: {
+  async asyncData({ app, params }) {
+    const client = app.apolloProvider.defaultClient;
+    const { slug } = params;
+    const res = await client.query({
       query: singleExhibition,
-      variables () {
-        return {
-          slug: this.slug
-        }
+      prefetch: true,
+      fetchPolicy: 'cache-first',
+      variables: {
+        slug
       }
-    }
+    });
+    const { exhibitions } = res.data;
+    return { exhibitions };
   },
   computed: {
     pageTitle() {

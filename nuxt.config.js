@@ -1,4 +1,5 @@
 import lt from './i18n/lt'
+import en from './i18n/lt'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -53,15 +54,22 @@ export default {
   ],
 
   i18n: {
-    locales: ['en', 'lt'],
+    locales: [
+      {
+        code: 'lt',
+        name: 'LT'
+      },
+      {
+        code: 'en',
+        name: 'EN'
+      },
+    ],
     defaultLocale: 'lt',
     vueI18n: {
       fallbackLocale: 'en',
       messages: {
         lt,
-        es: {
-          welcome: 'Bienvenido'
-        }
+        en,
       }
     }
   },

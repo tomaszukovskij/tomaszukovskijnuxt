@@ -1,9 +1,7 @@
 <template>
   <div class="wrapper">
-    <h1>Exhibitions</h1>
-    <div v-if="$apollo.loading">Loading...</div>
+    <h1>{{ $t('menu.exhibitions') }}</h1>
     <portfolio-list
-      v-else
       :post-type="'exhibitions'"
       :list="allExhibitions.nodes"/>
   </div>
@@ -18,6 +16,16 @@ export default {
   name: 'ExhibitionsIndex',
   components: {
     PortfolioList,
+  },
+  async asyncData({ app }) {
+    const client = app.apolloProvider.defaultClient;
+    const res = await client.query({
+      query: exhibitions,
+      prefetch: true,
+      fetchPolicy: 'cache-first',
+    });
+    const { allExhibitions } = res.data;
+    return { allExhibitions };
   },
   apollo: {
     allExhibitions: {

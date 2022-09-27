@@ -28,7 +28,10 @@ export default {
 footer {
   padding-bottom: 50px;
   font-family: 'Oxygen', sans-serif;
-  margin-top: 100px;
+  margin-top: 200px;
+  @media all and (max-width: 576px) {
+    margin-top: 100px;
+  }
 }
 #footer {
   @media all and (max-width: 576px) {

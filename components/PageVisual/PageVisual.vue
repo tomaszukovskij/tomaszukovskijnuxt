@@ -2,7 +2,7 @@
   <div
     id="page"
   >
-    <div class="wrapper">
+    <section class="wrapper">
       <h1>{{ localeTitle }}</h1>
       <div class="page__heading">
         <h2>{{ displayPageHeadingText }}</h2>
@@ -22,7 +22,12 @@
           <a href="https://www.instagram.com/tomaszukovskij/">@tomaszukovskij</a>
         </div>
       </div>
-    </div>
+    </section>
+    <section id="page__works">
+      <div class="wrapper">
+        <h2>{{ $t('common.works') }}</h2>
+      </div>
+    </section>
     <page-gallery
       v-if="pageGallery"
       :desktop-gallery="pageGallery"
@@ -71,6 +76,14 @@ export default {
   width: 100%;
   margin: 100px auto 0 auto;
   line-height: 1.7;
+
+  @media all and (max-width: 576px) {
+    margin-top: 60px;
+
+    p {
+      margin: 0px 0;
+    }
+  }
 }
 .page__heading {
   h2 {
@@ -91,5 +104,15 @@ export default {
 }
 .page__gallery {
   margin-top: 100px;
+  @media all and (max-width: 576px) {
+    margin-top: 40px;
+  }
+}
+#page__works {
+  margin-top: 100px;
+  text-align: center;
+  @media all and (max-width: 576px) {
+    margin-top: 60px;
+  }
 }
 </style>

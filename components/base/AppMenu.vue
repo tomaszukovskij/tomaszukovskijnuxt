@@ -60,6 +60,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
   name: 'AppMenu',
   data() {
@@ -68,6 +70,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(['currentLocale']),
     isMobile() {
       return this.$mq === 'sm';
     },
@@ -79,9 +82,13 @@ export default {
     },
     isMenuOpen() {
       return this.$store.state.menuOpen;
+    },
+    availableLocales () {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
     }
   },
   methods: {
+    ...mapActions(['changeCurrentLocale']),
     toggleMenu() {
       this.openMenu = !this.openMenu;
       this.$store.dispatch('updateMenuOpen', !this.isMenuOpen)
@@ -89,6 +96,17 @@ export default {
     closeMenu(e) {
       this.$store.dispatch('updateMenuOpen', false)
     },
+    changeLocale() {
+      this.changeCurrentLocale();
+    },
+    addClassToBody() {
+      const body = document.querySelector('body');
+      if (this.$store.state.menuOpen) {
+        body.classList.add('ovh');
+      } else {
+        body.classList.remove('ovh');
+      }
+    }
   },
 }
 </script>
@@ -107,7 +125,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   @media all and (max-width: 576px) {
-    padding: 20px 15px;
+    padding: 20px 30px;
     width: 100%;
     height: auto;
     display: flex;
@@ -126,6 +144,9 @@ ul {
   padding: 0;
   margin: 0;
   list-style-type: none;
+  @media all and (max-width: 576px) {
+    padding-top: 50px;
+  }
   li {
     position: relative;
   }
