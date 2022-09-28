@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-visual
-      :locale-title="'Portretai'"
+      :locale-title="$t('services.portraits')"
       :pages="pages"
     />
   </div>

@@ -4,7 +4,9 @@
   >
     <section class="wrapper">
       <h1>{{ localeTitle }}</h1>
-      <div class="page__heading">
+      <div
+        v-if="displayPageHeadingText"
+        class="page__heading">
         <h2>{{ displayPageHeadingText }}</h2>
       </div>
       <div

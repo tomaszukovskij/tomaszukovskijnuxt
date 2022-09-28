@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-visual
-      :locale-title="'Verslui įvaizdinė fotosesija'"
+      :locale-title="$t('services.business')"
       :pages="pages"
     />
   </div>

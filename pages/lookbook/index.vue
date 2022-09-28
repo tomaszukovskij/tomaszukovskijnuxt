@@ -1,6 +1,6 @@
 <template>
   <page-visual
-    :locale-title="'Lookbook arba produktų fotografija'"
+    :locale-title="$t('services.lookbook')"
     :pages="pages"
   />
 </template>

@@ -1,9 +1,11 @@
 export default {
   indexSlogan: 'Tomas Zukovskij fotografas kuris nenori, kad atrodytumet kaip VISI',
   indexBestWorks: 'Portfolio',
+  indexMore: 'show more',
   common: {
     from: 'from',
-    more: 'learn more'
+    more: 'learn more',
+    works: 'Works',
   },
   services: {
     portraits: 'Portraits',

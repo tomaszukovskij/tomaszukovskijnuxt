@@ -1,5 +1,5 @@
 import lt from './i18n/lt'
-import en from './i18n/lt'
+import en from './i18n/en'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target

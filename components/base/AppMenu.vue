@@ -4,58 +4,78 @@
     :class="toggleOpenClass"
   >
     <div class="main-nav__logo">
-      <nuxt-link to="/" >Tomas Zukovskij</nuxt-link>
+      <nuxt-link :to="localePath('/')">Tomas Zukovskij</nuxt-link>
     </div>
-    <div
-      v-if="isMobile"
-      class="main-nav__hamburger"
-      @click="toggleMenu"
-    >
-      {{ toggleMenuText }}
-    </div>
-    <ul
-      class="main-nav__menu"
-      :class="toggleOpenClass"
-    >
-      <li class="main-nav__menu__has-children">
-        <span class="main-nav__span">
+    <div class="main-nav__wrapper">
+      <ul
+        class="main-nav__menu"
+        :class="toggleOpenClass"
+      >
+        <li class="main-nav__menu__has-children">
+        <span
+          class="main-nav__span"
+          @click="showChildMenu('firstChild')"
+        >
           <p>{{ $t('menu.services') }}</p>
         </span>
-        <ul class="main-nav__submenu">
-          <li>
-            <nuxt-link to="/portraits" >{{ $t('services.portraits') }}</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/business" >{{ $t('services.business') }}</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/lookbook" >{{ $t('services.lookbook' )}}</nuxt-link>
-          </li>
-        </ul>
-      </li>
-      <li class="main-nav__menu__has-children">
-        <span class="main-nav__span">
+          <ul
+            ref="firstChild"
+            class="main-nav__submenu">
+            <li>
+              <nuxt-link :to="localePath('portraits')">{{ $t('services.portraits') }}</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link :to="localePath('business')">{{ $t('services.business') }}</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link :to="localePath('lookbook')">{{ $t('services.lookbook' )}}</nuxt-link>
+            </li>
+          </ul>
+        </li>
+        <li class="main-nav__menu__has-children">
+        <span
+          class="main-nav__span"
+          @click="showChildMenu('secondChild')"
+        >
           <p>{{ $t('menu.portfolio') }}</p>
         </span>
-        <ul class="main-nav__submenu">
-          <li>
-            <nuxt-link to="/peoples" >{{ $t('menu.peoples') }}</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/coincidences" >{{ $t('menu.coincidences') }}</nuxt-link>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <nuxt-link to="/exhibitions" >{{ $t('menu.exhibitions') }}</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/about" >{{ $t('menu.aboutMe') }}</nuxt-link>
-      </li>
-      <li>
-        <a href="https://baltikrastai.lt" target="_blank">{{ $t('menu.store') }}</a>
-      </li>
-    </ul>
+          <ul
+            ref="secondChild"
+            class="main-nav__submenu">
+            <li>
+              <nuxt-link :to="localePath('people')">{{ $t('menu.peoples') }}</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link :to="localePath('coincidences')">{{ $t('menu.coincidences') }}</nuxt-link>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <nuxt-link :to="localePath('exhibitions')">{{ $t('menu.exhibitions') }}</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="localePath('about')">{{ $t('menu.aboutMe') }}</nuxt-link>
+        </li>
+        <li>
+          <a href="https://baltikrastai.lt" target="_blank">{{ $t('menu.store') }}</a>
+        </li>
+      </ul>
+      <nuxt-link
+        v-for="locale in availableLocales"
+        :key="locale.code"
+        :to="switchLocalePath(locale.code)"
+        class="main-nav__change-language"
+      >
+        {{ locale.name }}
+      </nuxt-link>
+      <div
+        v-if="isMobile"
+        class="main-nav__hamburger"
+        @click="toggleMenu"
+      >
+        {{ toggleMenuText }}
+      </div>
+    </div>
   </nav>
 </template>
 
@@ -106,6 +126,13 @@ export default {
       } else {
         body.classList.remove('ovh');
       }
+    },
+    showChildMenu(ref) {
+      // this.$refs.firstChild.classList.remove('show');
+      // this.$refs.secondChild.classList.remove('show');
+      this.$refs[ref].classList.contains('show')
+        ? this.$refs[ref].classList.remove('show')
+        : this.$refs[ref].classList.add('show');
     }
   },
 }
@@ -207,11 +234,23 @@ ul {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  @media all and (max-width: 576px) {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    top: 0;
+    background: #f1f1f1;
+    &.show {
+      display: block;
+    }
+  }
 }
 .main-nav__menu__has-children {
   &:hover {
-    .main-nav__submenu {
-      display: block;
+    @media all and (min-width: 577px) {
+      .main-nav__submenu {
+        display: block;
+      }
     }
     .main-nav__span p::after {
       transform: rotate(180deg);
@@ -239,5 +278,12 @@ ul {
       margin-top: -10px;
     }
   }
+}
+.main-nav__wrapper {
+  display: flex;
+  align-items: center;
+}
+.main-nav__change-language {
+  padding: 10px;
 }
 </style>

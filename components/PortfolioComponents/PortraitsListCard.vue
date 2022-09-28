@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/exhibitions/${item.slug}`" class="portfolio-item">
+  <nuxt-link :to="localePath(`/exhibitions/${item.slug}`)" class="portfolio-item">
     <img :src="item.exhibitions.image.sourceUrl" alt="item.peoples.image.altText">
     <h2> {{ item.title }}</h2>
   </nuxt-link>
