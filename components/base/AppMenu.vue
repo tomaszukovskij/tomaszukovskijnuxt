@@ -4,7 +4,7 @@
     :class="toggleOpenClass"
   >
     <div class="main-nav__logo">
-      <nuxt-link :to="localePath('/')">Tomas Zukovskij</nuxt-link>
+      <nuxt-link :to="localePath('/')">Tomas Žukovskij</nuxt-link>
     </div>
     <div class="main-nav__wrapper">
       <ul

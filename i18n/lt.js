@@ -1,6 +1,6 @@
 export default {
-  indexSlogan: 'Tomas Zukovskij fotografas kuris nenori, kad atrodytumet kaip VISI',
-  indexBestWorks: 'Asmeniniai darbai',
+  indexSlogan: 'Tomas Žukovskij \n fotografas kuris sukuria Jūsų išskirtinį įvaizdį, suteikdamas šias \n paslaugas',
+  indexBestWorks: 'Asmeninių darbų kolekcija',
   indexMore: 'daugiau darbų',
   common: {
     from: 'nuo',
@@ -9,7 +9,7 @@ export default {
   },
   services: {
     portraits: 'Portretai',
-    business: 'Verslui įvaizdinė \n fotosesija',
+    business: 'Prekės ženklui/verslui įvaizdinė \n fotosesija',
     lookbook: 'Lookbook arba \n produktų fotografija'
   },
   menu: {
