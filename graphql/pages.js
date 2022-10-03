@@ -24,7 +24,7 @@ export const singlePage = gql`
           headingText
           headingTextEn
           serviceBulletPointLt
-          serviceBulletPointEn
+          serviceBulletPointNewEn
         }
         slug
         title

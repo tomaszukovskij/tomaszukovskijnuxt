@@ -1,5 +1,8 @@
 export default {
-  indexSlogan: 'Tomas Žukovskij fotografas kuris nenori, kad atrodytumet kaip VISI',
+  indexSloganPt1: 'Tomas Žukovskij',
+  indexSloganPt2: ', fotografas kuris yra',
+  indexSloganPt3: 'KITONIŠKAS',
+  indexSloganPt4: ', ir suteikia šias paslaugas',
   indexBestWorks: 'A collection of personal works',
   indexMore: 'show more',
   common: {

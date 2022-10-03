@@ -2,7 +2,9 @@
   <div>
     <div class="wrapper">
       <section class="page-text">
-        <h1>{{ $t('indexSlogan') }}</h1>
+        <h1>
+          <span>{{ $t('indexSloganPt1') }}</span>{{ $t('indexSloganPt2') }}<span> {{ $t('indexSloganPt3') }}</span>{{ $t('indexSloganPt4') }}
+        </h1>
         <div class="page__index__services">
           <nuxt-link
             to="/portraits"
@@ -144,6 +146,9 @@ export default {
 <style lang="scss" scoped>
 h1 {
   font-size: 4em;
+  span {
+    color: #006d77;
+  }
   @media all and (max-width: 576px) {
     font-size: 3em;
     line-height: 1.4;

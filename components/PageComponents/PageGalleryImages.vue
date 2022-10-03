@@ -19,11 +19,6 @@
           :src="image.sourceUrl"
           :alt="image.altText"
         >
-        <span
-          v-if="image.description && !isIndex"
-          class="gallery-item__caption"
-        >
-        # <p v-html="image.description"></p>
       </span>
       </div>
     </div>

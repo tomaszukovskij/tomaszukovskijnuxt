@@ -128,8 +128,6 @@ export default {
       }
     },
     showChildMenu(ref) {
-      // this.$refs.firstChild.classList.remove('show');
-      // this.$refs.secondChild.classList.remove('show');
       this.$refs[ref].classList.contains('show')
         ? this.$refs[ref].classList.remove('show')
         : this.$refs[ref].classList.add('show');
@@ -242,6 +240,11 @@ ul {
     background: #f1f1f1;
     &.show {
       display: block;
+      .main-nav__span p::after {
+        transform: rotate(180deg);
+        transform-origin: right center;
+        right: 12px;
+      }
     }
   }
 }
@@ -251,11 +254,11 @@ ul {
       .main-nav__submenu {
         display: block;
       }
-    }
-    .main-nav__span p::after {
-      transform: rotate(180deg);
-      transform-origin: right center;
-      right: 12px;
+      .main-nav__span p::after {
+        transform: rotate(180deg);
+        transform-origin: right center;
+        right: 12px;
+      }
     }
   }
 }

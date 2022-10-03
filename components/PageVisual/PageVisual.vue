@@ -7,14 +7,14 @@
       <div
         v-if="displayPageHeadingText"
         class="page__heading">
-        <h2>{{ displayPageHeadingText }}</h2>
+        <h2>{{ getHeading }}</h2>
       </div>
       <div
-        v-if="displayPageBulletPoints"
+        v-if="displayPageBulletPoints || displayPageBulletPointsEn"
         class="page__bullets"
       >
         <div
-          v-html="displayPageBulletPoints"
+          v-html="getPageBulletPoints"
         />
         <div
           class="page__contacts"
@@ -56,8 +56,14 @@ export default {
     displayPageHeadingText() {
       return this.pages.nodes[0].peoplesPage.headingText;
     },
+    displayPageHeadingTextEn() {
+      return this.pages.nodes[0].peoplesPage.headingTextEn;
+    },
     displayPageBulletPoints() {
       return this.pages.nodes[0].peoplesPage.serviceBulletPointLt;
+    },
+    displayPageBulletPointsEn() {
+      return this.pages.nodes[0].peoplesPage.serviceBulletPointNewEn;
     },
     pageContent() {
       return this.pages.nodes[0].content;
@@ -65,6 +71,16 @@ export default {
     pageGallery() {
       return this.pages.nodes[0].peoplesPage.gallery;
     },
+    getHeading() {
+      return this.$i18n.locale === 'lt'
+        ? this.displayPageHeadingText
+        : this.displayPageHeadingTextEn;
+    },
+    getPageBulletPoints() {
+      return this.$i18n.locale === 'lt'
+        ? this.displayPageBulletPoints
+        : this.displayPageBulletPointsEn;
+    }
   },
 }
 </script>
