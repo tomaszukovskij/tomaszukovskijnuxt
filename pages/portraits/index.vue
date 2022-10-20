@@ -21,7 +21,6 @@ export default {
     const res = await client.query({
       query: singlePage,
       prefetch: true,
-      fetchPolicy: 'cache-first',
       variables: {
         title: 'Portraits',
       },
@@ -30,10 +29,10 @@ export default {
     return { pages };
   },
   head: {
-    title: 'Tomas Žukovskij - People',
+    title: 'Tomas Žukovskij - portretai',
     meta: [
       {
-        content: 'Tomas Žukovskij people photography. Tomas Žukovskij fotografija.'
+        content: 'Tomas Žukovskij portretų fotografija'
       }
     ],
   },

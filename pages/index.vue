@@ -7,7 +7,7 @@
         </h1>
         <div class="page__index__services">
           <nuxt-link
-            to="/portraits"
+            :to="localePath('portraits')"
             class="page__index__services__item"
           >
             <div class="page__index__services__image">
@@ -25,7 +25,7 @@
             </div>
           </nuxt-link>
           <nuxt-link
-            to="/business"
+            :to="localePath('business')"
             class="page__index__services__item"
           >
             <div class="page__index__services__image">
@@ -43,7 +43,7 @@
             </div>
           </nuxt-link>
           <nuxt-link
-            to="/lookbook"
+            :to="localePath('lookbook')"
             class="page__index__services__item"
           >
             <div class="page__index__services__image">
@@ -92,11 +92,6 @@ export default {
   components: {
     PageGallery,
   },
-  data() {
-    return {
-      showMoreGalleryItems: false,
-    }
-  },
   async asyncData({ app }) {
     const client = app.apolloProvider.defaultClient;
     const res = await client.query({
@@ -107,6 +102,19 @@ export default {
 
     const { pages } = res.data;
     return { pages };
+  },
+  data() {
+    return {
+      showMoreGalleryItems: false,
+    }
+  },
+  head: {
+    title: 'Tomas Žukovskij - fotografijos paslaugos',
+    meta: [
+      {
+        content: 'Tomas Žukovskij fotografuoja portrentus, prekės ženklo įvaizdines fotosesijas, lookbookus bei produktus'
+      }
+    ],
   },
   computed: {
     nodesLength() {

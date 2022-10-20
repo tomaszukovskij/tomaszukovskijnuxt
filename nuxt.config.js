@@ -9,7 +9,7 @@ export default {
   head: {
     title: 'Tomas Žukovskij - artist from Vilnius',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'lt',
     },
     meta: [
       { charset: 'utf-8' },
@@ -38,6 +38,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/google-analytics'
   ],
 
   // axios
@@ -66,12 +67,16 @@ export default {
     ],
     defaultLocale: 'lt',
     vueI18n: {
-      fallbackLocale: 'en',
+      fallbackLocale: 'lt',
       messages: {
         lt,
         en,
       }
     }
+  },
+
+  googleAnalytics: {
+    id: 'UA-114399498-1'
   },
 
   'mq': {

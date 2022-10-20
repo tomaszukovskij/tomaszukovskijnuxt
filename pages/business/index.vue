@@ -21,7 +21,6 @@ export default {
     const res = await client.query({
       query: singlePage,
       prefetch: true,
-      fetchPolicy: 'cache-first',
       variables: {
         title: 'Business identity',
       },
@@ -30,10 +29,10 @@ export default {
     return { pages };
   },
   head: {
-    title: 'Tomas Žukovskij - Business',
+    title: 'Tomas Žukovskij - Prekės ženklui/verslui įvaizdinė fotosesija',
     meta: [
       {
-        content: 'Tomas Žukovskij people photography. Tomas Žukovskij fotografija.'
+        content: 'Tomas Žukovskij jūsų kaip kūrėjo įvaizdinės fotografijos'
       }
     ],
   },

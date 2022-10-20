@@ -1,8 +1,8 @@
 export default {
   indexSloganPt1: 'Tomas Žukovskij',
-  indexSloganPt2: ', fotografas kuris yra',
-  indexSloganPt3: 'KITONIŠKAS',
-  indexSloganPt4: ', ir suteikia šias paslaugas',
+  indexSloganPt2: ', photographer who is',
+  indexSloganPt3: 'DIFFERENT',
+  indexSloganPt4: ', and provides these services',
   indexBestWorks: 'A collection of personal works',
   indexMore: 'show more',
   common: {

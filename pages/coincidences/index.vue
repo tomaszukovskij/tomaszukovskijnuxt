@@ -22,7 +22,6 @@ export default {
     const res = await client.query({
       query: singlePage,
       prefetch: true,
-      fetchPolicy: 'cache-first',
       variables: {
         title: 'Coincidences',
       },
@@ -31,10 +30,10 @@ export default {
     return { pages };
   },
   head: {
-    title: 'Tomas Žukovskij - street',
+    title: 'Tomas Žukovskij - atsitiktinumai',
     meta: [
       {
-        content: 'Tomas Žukovskij street photography. Tomas Žukovskij gatvės fotografija.'
+        content: 'Tomas Žukovskij atsitiktinumų kolekcijos fotografija'
       }
     ],
   },

@@ -33,10 +33,10 @@ export default {
     },
   },
   head: {
-    title: 'Tomas Žukovskij - exhibitions',
+    title: 'Tomas Žukovskij - parodos',
     meta: [
       {
-        content: 'Tomas Žukovskij exhibitions. Tomas Žukovskij parodos.'
+        content: 'Tomas Žukovskij parodos.'
       }
     ],
   },

@@ -1,5 +1,8 @@
 export default {
-  indexSlogan: 'Tomas Žukovskij \n fotografas kuris sukuria Jūsų išskirtinį įvaizdį, suteikdamas šias \n paslaugas',
+  indexSloganPt1: 'Tomas Žukovskij',
+  indexSloganPt2: ', fotografas kuris yra',
+  indexSloganPt3: 'KITONIŠKAS',
+  indexSloganPt4: ', ir suteikia šias paslaugas',
   indexBestWorks: 'Asmeninių darbų kolekcija',
   indexMore: 'daugiau darbų',
   common: {

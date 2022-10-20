@@ -30,10 +30,10 @@ export default {
     return { pages };
   },
   head: {
-    title: 'Tomas Žukovskij - about me',
+    title: 'Tomas Žukovskij - apie kūrėja',
     meta: [
       {
-        content: 'Tomas Žukovskij about photography. Tomas Žukovskij apie fotografija.'
+        content: 'Tomas Žukovskij apie mane.'
       }
     ],
   },

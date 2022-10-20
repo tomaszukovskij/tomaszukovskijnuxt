@@ -20,7 +20,6 @@ export default {
     const res = await client.query({
       query: singlePage,
       prefetch: true,
-      fetchPolicy: 'cache-first',
       variables: {
         title: 'Lookbook',
       },
@@ -29,10 +28,10 @@ export default {
     return { pages };
   },
   head: {
-    title: 'Tomas Žukovskij - Lookbook',
+    title: 'Tomas Žukovskij - Lookbook arba produktų fotografija',
     meta: [
       {
-        content: 'Tomas Žukovskij lookbook photography. Tomas Žukovskij lookbook fotografija.'
+        content: 'Tomas Žukovskij jūsų kūrybos fotografija'
       }
     ],
   },

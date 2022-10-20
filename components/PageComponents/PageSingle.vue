@@ -4,9 +4,9 @@
   >
     <h1>{{ pageTitle }}</h1>
     <div
-      v-if="pageContent"
+      v-if="getHeading"
       class="page-content"
-      v-html="pageContent"
+      v-html="getHeading"
     />
     <page-gallery
       v-if="pageGallery"
@@ -28,11 +28,19 @@ export default {
     pages: array,
   },
   computed: {
-    pageContent() {
-      return this.pages.nodes[0].content;
+    pageHeading() {
+      return this.pages.nodes[0].peoplesPage.headingText;
+    },
+    pageHeadingEn() {
+      return this.pages.nodes[0].peoplesPage.headingTextEn;
     },
     pageGallery() {
       return this.pages.nodes[0].peoplesPage.gallery;
+    },
+    getHeading() {
+      return this.$i18n.locale === 'lt'
+        ? this.pageHeading
+        : this.pageHeadingEn;
     },
   },
   mounted() {
@@ -49,6 +57,7 @@ export default {
 <style scoped lang="scss">
 .page-content {
   margin-bottom: 100px;
+  line-height: 1.5;
 }
 </style>
 
