@@ -20,7 +20,6 @@ export default {
     const client = app.apolloProvider.defaultClient;
     const res = await client.query({
       query: singlePage,
-      prefetch: true,
       variables: {
         title: 'Portraits',
       },

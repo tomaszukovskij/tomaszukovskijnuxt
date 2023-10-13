@@ -11,45 +11,7 @@
         class="main-nav__menu"
         :class="toggleOpenClass"
       >
-        <li class="main-nav__menu__has-children">
-        <span
-          class="main-nav__span"
-          @click="showChildMenu('firstChild')"
-        >
-          <p>{{ $t('menu.services') }}</p>
-        </span>
-          <ul
-            ref="firstChild"
-            class="main-nav__submenu">
-            <li>
-              <nuxt-link :to="localePath('portraits')">{{ $t('services.portraits') }}</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="localePath('business')">{{ $t('services.business') }}</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="localePath('lookbook')">{{ $t('services.lookbook' )}}</nuxt-link>
-            </li>
-          </ul>
-        </li>
-        <li class="main-nav__menu__has-children">
-        <span
-          class="main-nav__span"
-          @click="showChildMenu('secondChild')"
-        >
-          <p>{{ $t('menu.portfolio') }}</p>
-        </span>
-          <ul
-            ref="secondChild"
-            class="main-nav__submenu">
-            <li>
-              <nuxt-link :to="localePath('people')">{{ $t('menu.peoples') }}</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="localePath('coincidences')">{{ $t('menu.coincidences') }}</nuxt-link>
-            </li>
-          </ul>
-        </li>
+        <nuxt-link :to="localePath('projects')">{{ $t('menu.projects') }}</nuxt-link>
         <li>
           <nuxt-link :to="localePath('exhibitions')">{{ $t('menu.exhibitions') }}</nuxt-link>
         </li>
@@ -98,7 +60,7 @@ export default {
       return this.isMenuOpen ? 'open' : '';
     },
     toggleMenuText() {
-      return this.isMenuOpen ? 'close' : 'Menu';
+      return this.isMenuOpen ? 'XX' : 'Menu';
     },
     isMenuOpen() {
       return this.$store.state.menuOpen;
@@ -145,12 +107,13 @@ export default {
   padding: 15px 20px;
   background: #fff;
   z-index: 100;
-  font-size: 1rem;
+  font-size: 1.3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Crimson Text', serif;
   @media all and (max-width: 576px) {
-    padding: 20px 30px;
+    padding: 20px 15px;
     width: 100%;
     height: auto;
     display: flex;
@@ -186,7 +149,7 @@ ul {
     height: calc(100% - 50px);
     background: #fff;
     z-index: 999;
-    top: 50px;
+    top: 70px;
     left: 0;
 
     &.open {
@@ -215,7 +178,7 @@ ul {
 .main-nav__hamburger {
   cursor: pointer;
   width: 50px;
-  height: 30px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -19,7 +19,7 @@ export default {
     const client = app.apolloProvider.defaultClient;
     const res = await client.query({
       query: singlePage,
-      prefetch: true,
+      prefetch: false,
       variables: {
         title: 'Lookbook',
       },

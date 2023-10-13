@@ -1,6 +1,6 @@
 export default {
-  indexSloganPt1: 'Tomas Žukovskij',
-  indexSloganPt2: ', photographer who is',
+  indexSloganPt1: 'I am creator',
+  indexSloganPt2: 'Tomas Žukovskij',
   indexSloganPt3: 'DIFFERENT',
   indexSloganPt4: ', and provides these services',
   indexBestWorks: 'A collection of personal works',
@@ -9,6 +9,15 @@ export default {
     from: 'from',
     more: 'learn more',
     works: 'Works',
+    addToCart: 'Add to cart',
+    viewToCart: 'View cart',
+    size: 'Size',
+    price: 'Price',
+    passepartout: 'Passepartout',
+    remove: 'remove',
+    noFrame: 'Without passepartout',
+    withFrame: 'Framed',
+    frame: 'Frame',
   },
   services: {
     portraits: 'Portraits',
@@ -22,6 +31,48 @@ export default {
     coincidences: 'Coincidences',
     exhibitions: 'Exhibitions',
     aboutMe: 'About the creator',
-    store: 'Print shop'
-  }
+    store: 'Print shop',
+    projects: 'Projects'
+  },
+  homePage: {
+    welcomeMessage: 'Photography inspired by the sea. Neringa region.',
+    welcomeMessage2: 'Welcome to Tomas Žukovskij analogue art shop.',
+    title: 'Home',
+  },
+  cart: {
+    cartTitle: 'Cart',
+    cartEmpty: 'Cart is empty',
+    totalPrice: 'Total price',
+    checkoutProblem:
+      'If there is any problems with checkout, please contact me via email or through social media',
+    proceedToPayment: 'Proceed to payment',
+  },
+  payment: {
+    failedTitle: 'Failed',
+    failed: 'Payment has been failed :(',
+    unpaid: 'Your order is unpaid. Go to cart and try again.',
+    successTitle: 'Success',
+    successThankYou: 'Thank you for becoming art collector :)',
+    orderOnTheWay: 'Your order in on the way',
+  },
+  printSingle: {
+    addedToCart: 'Print has been added to cart',
+    highLights: {
+      title: 'Highlights',
+      freeShipping: 'Free shipping',
+      original: 'Original',
+      printedOnPaper: 'Printed on museum quality paper 308 gsm',
+      onlyTwenty: 'Limited twenty units for sale',
+      signed: 'Signed and numbered (20/your purchase number)',
+    },
+    frameNote: 'With selected size passepartout will be {0} cm',
+    frameWithPass: 'This is how print look like with passepartout',
+    frameWithoutPass: 'This is how print look like without passepartout',
+    description: 'Cycle description',
+    withFrame: 'size with the frame',
+    variations: 'How it looks with a frame',
+  },
+  about: {
+    title: 'About me',
+  },
 }

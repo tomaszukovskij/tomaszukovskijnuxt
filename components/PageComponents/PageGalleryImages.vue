@@ -19,7 +19,6 @@
           :src="image.sourceUrl"
           :alt="image.altText"
         >
-      </span>
       </div>
     </div>
   </div>
@@ -58,6 +57,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .gallery-item {
   width: 100%;

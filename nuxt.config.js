@@ -52,7 +52,16 @@ export default {
     '@nuxtjs/apollo',
     '@nuxtjs/i18n',
     'nuxt-mq',
+    'nuxt-facebook-pixel-module',
+    '@nuxtjs/sitemap'
   ],
+
+  facebook: {
+    /* module options */
+    pixelId: '687096992841398',
+    autoPageView: true,
+    disabled: false
+  },
 
   i18n: {
     locales: [
@@ -72,11 +81,12 @@ export default {
         lt,
         en,
       }
-    }
+    },
+    detectBrowserLanguage: false,
   },
 
   googleAnalytics: {
-    id: 'UA-114399498-1'
+    id: 'G-ET0MVFZ1EP'
   },
 
   'mq': {
@@ -109,4 +119,13 @@ export default {
   server: {
     port: 4500,
   },
+
+  sitemap: {
+    hostname: 'https://tomaszukovskij.com',
+    gzip: true,
+    exclude: [
+      '/secret',
+      '/admin/**'
+    ],
+  }
 }

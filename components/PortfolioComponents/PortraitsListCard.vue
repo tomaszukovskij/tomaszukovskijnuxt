@@ -1,6 +1,6 @@
 <template>
-  <nuxt-link :to="localePath(`/exhibitions/${item.slug}`)" class="portfolio-item">
-    <img :src="item.exhibitions.image.sourceUrl" alt="item.peoples.image.altText">
+  <nuxt-link :to="localePath(`/${postType}/${item.slug}`)" class="portfolio-item">
+    <img :src="imageUrl" alt="item.peoples.image.altText">
     <h2> {{ item.title }}</h2>
   </nuxt-link>
 </template>
@@ -12,6 +12,11 @@ export default {
   props: {
     item: t.object,
     postType: t.string,
+  },
+  computed: {
+    imageUrl() {
+      return this.item[this.postType].image.sourceUrl;
+    },
   },
 }
 </script>

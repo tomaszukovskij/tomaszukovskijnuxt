@@ -107,7 +107,7 @@ export default {
   h2 {
     font-size: 1.5em;
     font-weight: 400;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Dosis', sans-serif;
   }
 }
 .page__contacts {

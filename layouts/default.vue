@@ -26,7 +26,7 @@ export default {
 <style lang="scss">
 @import "./assets/styles/common.scss";
 @import "./assets/styles/typography.scss";
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&family=Raleway:wght@200;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Josefin+Sans:wght@200;400;500;700&display=swap');
 .home-enter-active, .home-leave-active {
   transition: opacity .5s;
   @media all and (max-width: 576px) {

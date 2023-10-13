@@ -1,0 +1,297 @@
+.single-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+  @media all and (max-width: 800px) {
+    gap: 0;
+    flex-direction: column;
+  }
+  &--side {
+    width: 50%;
+
+    @media all and (max-width: 800px) {
+      width: 100%;
+      margin-bottom: 40px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @media all and (max-width: 576px) {
+      margin-bottom: 10px;
+    }
+  }
+  &--description {
+    margin-top: 80px;
+    border-top: 1px solid #dadada;
+    @media all and (max-width: 576px) {
+      margin-top: 50px;
+      border-top: 0;
+    }
+  }
+
+  &--variations {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        div {
+          width: 80%;
+          float: left;
+          margin-bottom: 80px;
+
+          @media all and (max-width: 576px) {
+            width: 100%;
+            margin-bottom: 30px;
+          }
+
+          &:nth-child(2n) {
+            float: right;
+
+            @media all and (max-width: 576px) {
+              text-align: left;
+            }
+          }
+        }
+
+        p {
+          margin-bottom: 40px;
+          width: 80%;
+          display: inline-block;
+          margin-top: 0;
+
+          @media all and (max-width: 576px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+.single-description {
+  margin-top: 50px;
+  line-height: 1.75rem;
+  font-size: 18px;
+
+  @media all and (max-width: 1024px) {
+    width: 100%;
+  }
+
+
+
+  div {
+    line-height: 2rem;
+  }
+}
+
+.single-page-main-image {
+  position: relative;
+  cursor: pointer;
+}
+.title {
+  font-size: 2em;
+  font-weight: 300;
+  margin-top: 50px;
+
+  @media all and (max-width: 576px) {
+    margin-top: 20px;
+  }
+}
+
+.price {
+  font-size: 3em;
+  font-weight: 500;
+  margin-top: 20px;
+  display: block;
+
+  @media all and (max-width: 576px) {
+    margin-top: 0px;
+  }
+}
+
+.cycle {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  @media all and (max-width: 576px) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.addToCart {
+  margin-top: 40px;
+}
+
+.button-to {
+  margin-top: 40px;
+}
+::v-deep {
+  .multiselect {
+    width: auto;
+  }
+
+  .multiselect__option--highlight {
+    background: #0d1821;
+    &::after {
+      background: #0d1821;
+      color: #fff;
+      display: none;
+    }
+  }
+  .multiselect__tags {
+    border-color: #696b6d;
+  }
+  .multiselect__content-wrapper {
+    box-shadow: -1px 11px 49px -7px rgba(0,0,0,0.63);
+  }
+}
+.multiselect-wrap {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dadada;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+  label {
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .multiselect__option--selected.multiselect__option--highlight {
+    display: none;
+  }
+
+  &__frame-note {
+    text-align: right;
+    justify-content: flex-end;
+    border-bottom: 0;
+  }
+}
+
+@keyframes noFrameBackground {
+  0% {
+    background: #fff;
+  }
+  30% {
+    background: #e2efbb;
+  }
+  50% {
+    background: #e2efbb;
+  }
+  100% {
+    background: #fff;
+  }
+}
+
+// GALLERY
+.single-page--gallery {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+
+  div {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    @media all and (max-width: 576px) {
+      height: 130px;
+      width: 130px;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: top;
+      width: 100%;
+      height: 100%;
+      @media all and (max-width: 576px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+// highlights
+.highlights {
+  margin-top: 50px;
+  line-height: 1.75rem;
+  font-size: 18px;
+  @media all and (max-width: 576px) {
+    margin-top: 0px;
+  }
+
+  label {
+    font-weight: 500;
+  }
+
+  ul {
+    margin-left: 0;
+    padding-left: 20px;
+    line-height: 1.75;
+  }
+}
+
+.zoom-icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  background: url("~@/assets/img/magnifying-glass-plus-solid.svg") center center no-repeat;
+  background-size: 20px;
+  opacity: .5;
+
+  @media all and (max-width: 576px) {
+    width: 30px;
+    height: 30px;
+    background-size: 15px;
+  }
+}
+
+.single-page__with-frame {
+  margin-top: 50px;
+  width: 50%;
+
+  @media all and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.single-page--added-to-cart {
+  margin-bottom: 10px;
+  color: #0f870f;
+}
+
+.howItLooks {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.iframe {
+  width: 100%;
+  height: 600px;
+
+  @media all and (max-width: 576px) {
+    height: 200px;
+  }
+}

@@ -7,6 +7,8 @@ export const singlePage = gql`
         content,
         peoplesPage {
           title
+          price
+          salePrice
           gallery {
             altText
             slug

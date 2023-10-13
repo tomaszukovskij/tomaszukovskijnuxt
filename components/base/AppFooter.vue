@@ -27,7 +27,7 @@ export default {
 <style scoped lang="scss">
 footer {
   padding-bottom: 50px;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Dosis', sans-serif;
   margin-top: 200px;
   @media all and (max-width: 576px) {
     margin-top: 100px;

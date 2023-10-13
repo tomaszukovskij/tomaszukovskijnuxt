@@ -6,8 +6,11 @@ export const HomePage = gql`
       nodes {
         homepage {
           businessPrice
+          businessSalePrice
           lookbookPrice
+          lookbookSalePrice
           portraitsPrice
+          portraitsSalePrice
           businessImage {
             altText
             id
