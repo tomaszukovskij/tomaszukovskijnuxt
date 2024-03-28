@@ -31,7 +31,8 @@ export default {
     title: 'Tomas Žukovskij - Lookbook arba produktų fotografija',
     meta: [
       {
-        content: 'Tomas Žukovskij jūsų kūrybos fotografija'
+        name: 'description',
+        content: 'Mados fotografija, drabužių fotografavimas, produktų fotografija, lookbook fotografija, reklaminė'
       }
     ],
   },

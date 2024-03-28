@@ -22,9 +22,9 @@ export default {
     frame: 'Rėmas',
   },
   services: {
-    portraits: 'Portretai',
+    portraits: 'Kitokia profilio nuotrauka',
     business: 'Prekės ženklui/verslui įvaizdinė \n fotosesija',
-    lookbook: 'Lookbook arba \n produktų fotografija'
+    lookbook: 'Lookbook'
   },
   menu: {
     services: 'Paslaugos',

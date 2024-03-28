@@ -22,7 +22,7 @@ export default {
   services: {
     portraits: 'Portraits',
     business: 'Visual storytelling \n for brand/business',
-    lookbook: 'Lookbook or \n products'
+    lookbook: 'Lookbook'
   },
   menu: {
     services: 'Services',

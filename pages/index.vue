@@ -184,8 +184,8 @@ h1 {
     font-weight: 400;
 
     @media all and (max-width: 576px) {
-      font-size: 2.0em;
-      margin-bottom: 60px;
+      font-size: 1.7em;
+      margin-bottom: 30px;
     }
   }
 }

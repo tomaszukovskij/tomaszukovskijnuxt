@@ -28,10 +28,11 @@ export default {
     return { pages };
   },
   head: {
-    title: 'Tomas Žukovskij - portretai',
+    title: 'Tomas Žukovskij - kitokia profilio nuotrauka',
     meta: [
       {
-        content: 'Tomas Žukovskij portretų fotografija'
+        name: 'description',
+        content: 'Kitokia profilio nuotrauka, asmeninės fotosesijos, portretai'
       }
     ],
   },

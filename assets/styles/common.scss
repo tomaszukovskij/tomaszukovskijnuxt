@@ -7,6 +7,9 @@ body {
   min-height: 100%;
   position: relative;
   padding-bottom: 80px;
+  @media all and (max-width: 576px) {
+    padding-bottom: 0;
+  }
 }
 
 * {
@@ -57,6 +60,9 @@ a {
   line-height: 1.5;
   letter-spacing: .5px;
   font-size: 1.5em;
+  @media all and (max-width: 576px) {
+    font-size: 1em;
+  }
 }
 
 .w100 {

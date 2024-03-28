@@ -15,6 +15,24 @@
         <li>
           <nuxt-link :to="localePath('exhibitions')">{{ $t('menu.exhibitions') }}</nuxt-link>
         </li>
+        <li class="main-nav__menu__has-children">
+        <span
+          class="main-nav__span"
+          @click="showChildMenu('firstChild')"
+        >
+          <p>{{ $t('menu.services') }}</p>
+        </span>
+          <ul
+            ref="firstChild"
+            class="main-nav__submenu">
+            <li>
+              <nuxt-link :to="localePath('portraits')">{{ $t('services.portraits') }}</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link :to="localePath('lookbook')">{{ $t('services.lookbook' )}}</nuxt-link>
+            </li>
+          </ul>
+        </li>
         <li>
           <nuxt-link :to="localePath('about')">{{ $t('menu.aboutMe') }}</nuxt-link>
         </li>
@@ -188,7 +206,7 @@ ul {
   background: #fff;
   z-index: 2;
   padding: 10px 0;
-  top: 30px;
+  top: 40px;
   left: 0;
   display: none;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

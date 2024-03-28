@@ -18,6 +18,15 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-ET0MVFZ1EP',
+        async: true,
+      },
+      {
+        src: 'plugins/gtag.js',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -38,7 +47,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-gtag'
   ],
 
   // axios
@@ -53,7 +62,8 @@ export default {
     '@nuxtjs/i18n',
     'nuxt-mq',
     'nuxt-facebook-pixel-module',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    'nuxt-gtag'
   ],
 
   facebook: {
@@ -86,7 +96,7 @@ export default {
   },
 
   googleAnalytics: {
-    id: 'G-ET0MVFZ1EP'
+    id: 'G-384756415'
   },
 
   'mq': {

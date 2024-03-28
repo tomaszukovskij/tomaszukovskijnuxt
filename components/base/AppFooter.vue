@@ -45,6 +45,13 @@ footer {
 }
 .footer__contact {
   font-size: .9em;
+  @media all and (max-width: 576px) {
+    flex-direction: column;
+    align-items: center;
+    a {
+      margin-bottom: 10px;
+    }
+  }
   a {
     padding: 5px 20px;
     color: #006d77;

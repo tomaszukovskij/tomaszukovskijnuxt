@@ -32,5 +32,13 @@ export default {
   img {
     width: 100%;
   }
+
+  h2 {
+    margin-top: 12px;
+
+    @media all and (max-width: 576px) {
+      font-size: 1.7em;
+    }
+  }
 }
 </style>

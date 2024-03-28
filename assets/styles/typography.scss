@@ -6,6 +6,11 @@ h1 {
   font-size: 3.7em;
   white-space: pre-line;
   font-family: 'Josefin Sans', sans-serif;
+
+  @media all and (max-width: 576px) {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+  }
 }
 
 h2 {
@@ -15,6 +20,6 @@ h2 {
   white-space: pre-line;
   font-family: 'Josefin Sans', sans-serif;
   @media all and (max-width: 576px) {
-    font-size: 2.3em;
+    font-size: 2.0em;
   }
 }
