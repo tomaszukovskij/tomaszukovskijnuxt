@@ -30,8 +30,12 @@ export default {
 #portfolio-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 100px;
   align-content: flex-start;
   justify-content: center;
+
+  @media all and (max-width: 576px) {
+    gap: 60px;
+  }
 }
 </style>
