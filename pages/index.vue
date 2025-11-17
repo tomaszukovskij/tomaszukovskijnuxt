@@ -70,9 +70,23 @@ export default {
         : this.pages.nodes[this.nodesLength].peoplesPage.gallery;
     },
   },
-  mounted() {
+  async mounted() {
     backToTop();
     this.$store.dispatch('updateMenuOpen', false);
+
+    // Fetch fresh data from WordPress on client-side
+    if (process.client) {
+      try {
+        const client = this.$apollo.getClient();
+        const { data } = await client.query({
+          query: HomePage,
+          fetchPolicy: 'network-only', // Skip cache to get fresh data
+        });
+        this.pages = data.pages;
+      } catch (error) {
+        console.error('Error fetching fresh homepage data:', error);
+      }
+    }
   },
 }
 </script>

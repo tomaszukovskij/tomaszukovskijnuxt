@@ -40,9 +40,23 @@ export default {
       }
     ],
   },
-  mounted() {
+  async mounted() {
     backToTop();
-    this.$store.dispatch('updateMenuOpen', false)
+    this.$store.dispatch('updateMenuOpen', false);
+
+    // Fetch fresh data from WordPress on client-side
+    if (process.client) {
+      try {
+        const client = this.$apollo.getClient();
+        const { data } = await client.query({
+          query: exhibitions,
+          fetchPolicy: 'network-only', // Skip cache to get fresh data
+        });
+        this.allExhibitions = data.allExhibitions;
+      } catch (error) {
+        console.error('Error fetching fresh exhibitions data:', error);
+      }
+    }
   },
 }
 </script>

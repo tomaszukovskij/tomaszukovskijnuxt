@@ -65,9 +65,26 @@ export default {
       return 'Tomas';
     }
   },
-  mounted() {
+  async mounted() {
     backToTop();
-    this.$store.dispatch('updateMenuOpen', false)
+    this.$store.dispatch('updateMenuOpen', false);
+
+    // Fetch fresh data from WordPress on client-side
+    if (process.client) {
+      try {
+        const client = this.$apollo.getClient();
+        const { data } = await client.query({
+          query: singleExhibition,
+          fetchPolicy: 'network-only', // Skip cache to get fresh data
+          variables: {
+            slug: this.slug
+          }
+        });
+        this.exhibitions = data.exhibitions;
+      } catch (error) {
+        console.error('Error fetching fresh exhibition data:', error);
+      }
+    }
   },
 }
 </script>

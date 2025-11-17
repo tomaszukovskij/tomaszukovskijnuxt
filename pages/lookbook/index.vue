@@ -36,9 +36,26 @@ export default {
       }
     ],
   },
-  mounted() {
+  async mounted() {
     backToTop();
-    this.$store.dispatch('updateMenuOpen', false)
+    this.$store.dispatch('updateMenuOpen', false);
+
+    // Fetch fresh data from WordPress on client-side
+    if (process.client) {
+      try {
+        const client = this.$apollo.getClient();
+        const { data } = await client.query({
+          query: singlePage,
+          fetchPolicy: 'network-only', // Skip cache to get fresh data
+          variables: {
+            title: 'Lookbook',
+          },
+        });
+        this.pages = data.pages;
+      } catch (error) {
+        console.error('Error fetching fresh lookbook data:', error);
+      }
+    }
   },
 }
 </script>
