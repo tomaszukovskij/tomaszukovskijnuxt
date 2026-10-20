@@ -76,7 +76,18 @@ export default {
   }
 }
 img {
-  width: 100%;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100vh;
+  max-height: 100svh;
+  margin: 0 auto;
+  // Leave room for the 77px fixed header on desktop
+  @media all and (min-width: 577px) {
+    max-height: calc(100vh - 77px);
+    max-height: calc(100svh - 77px);
+  }
 }
 .gallery-item__caption {
   display: flex;
@@ -110,7 +121,5 @@ img {
 .small-to-center:not(.index-gallery) {
   max-width: 60%;
 }
-.portrait {
-  padding: 0 20%;
-}
+.portrait {}
 </style>

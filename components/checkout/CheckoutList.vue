@@ -50,14 +50,10 @@
 <script>
 import t from 'vue-types';
 import { mapState, mapActions } from 'vuex';
-import AButton from "../common/AButton.vue";
 import { REMOVE_ITEM_FROM_CHECKOUT } from '~/store/actionTypes';
 
 export default {
   name: 'CheckoutList',
-  components: {
-    AButton,
-  },
   props: {
     isSuccessPage: t.bool.def(false),
   },

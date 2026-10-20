@@ -69,21 +69,19 @@ export default {
     backToTop();
     this.$store.dispatch('updateMenuOpen', false);
 
-    // Fetch fresh data from WordPress on client-side
-    if (process.client) {
-      try {
-        const client = this.$apollo.getClient();
-        const { data } = await client.query({
-          query: singleProjects,
-          fetchPolicy: 'network-only', // Skip cache to get fresh data
-          variables: {
-            slug: this.slug
-          }
-        });
-        this.projects = data.projects;
-      } catch (error) {
-        console.error('Error fetching fresh project data:', error);
-      }
+    // mounted() only runs on the client, so this always fetches fresh data from WordPress
+    try {
+      const client = this.$apollo.getClient();
+      const { data } = await client.query({
+        query: singleProjects,
+        fetchPolicy: 'network-only', // Skip cache to get fresh data
+        variables: {
+          slug: this.slug
+        }
+      });
+      this.projects = data.projects;
+    } catch (error) {
+      console.error('Error fetching fresh project data:', error);
     }
   },
 }
@@ -101,7 +99,22 @@ export default {
   }
 }
 .page-gallery__item {
+  width: 100%;
   margin-bottom: 40px;
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100vh;
+    max-height: 100svh;
+    margin: 0 auto;
+    // Leave room for the 77px fixed header on desktop
+    @media all and (min-width: 577px) {
+      max-height: calc(100vh - 77px);
+      max-height: calc(100svh - 77px);
+    }
+  }
   @media all and (max-width: 576px) {
     margin-bottom: 10px;
   }
